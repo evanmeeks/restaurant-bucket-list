@@ -1,0 +1,58 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Icon } from '@rneui/themed';
+import { useAppSelector } from 'core/src/store';
+import React from 'react';
+import { Platform } from 'react-native';
+import { theme } from '../theme';
+
+// Import screens
+import { BucketListScreen } from '../components/screens/BucketListScreen';
+import { ExploreScreen } from '../components/screens/ExploreScreen';
+import { ProfileScreen } from '../components/screens/ProfileScreen';
+import { SearchScreen } from '../components/screens/SearchScreen';
+
+// Import types
+import { MainTabParamList, RootStackParamList } from './types';
+
+// Create navigators
+const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<MainTabParamList>();
+
+/**
+ * Bottom Tab Navigator
+ * - Provides the main navigation tabs for the app
+ * - Includes icons and labels for each tab
+ * - Handles badge indicators for bucket list
+ */
+const MainTabNavigator = () => {
+  const bucketListCount = useAppSelector(state => state.bucketList.items.length);
+
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: theme.colors.primary,
+        tabBarInactiveTintColor: theme.colors.grey3,
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '500',
+        },
+        tabBarStyle: {
+          paddingVertical: Platform.OS === 'ios' ? 10 : 5,
+          height: Platform.OS === 'ios' ? 90 : 70,
+        },
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen
+        name="Explore"
+        component={ExploreScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="explore" type="material" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
