@@ -1,1 +1,9 @@
+out
+dist
 node_modules
+.vscode-test/
+*.vsix
+bun.lockb
+package.json
+.env*
+.expo
