@@ -11,6 +11,8 @@ import { BucketListScreen } from '../components/screens/BucketListScreen';
 import { ExploreScreen } from '../components/screens/ExploreScreen';
 import { ProfileScreen } from '../components/screens/ProfileScreen';
 import { SearchScreen } from '../components/screens/SearchScreen';
+import { APITestScreen } from '../components/screens/APITestScreen';
+import DetailScreen from '../components/screens/DetailScreen'; // Changed to default import
 
 // Import types
 import { MainTabParamList, RootStackParamList } from './types';
@@ -27,7 +29,7 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
  */
 const MainTabNavigator = () => {
   const bucketListCount = useAppSelector(state => state.bucketList.items.length);
-
+  
   return (
     <Tab.Navigator
       screenOptions={{
@@ -53,6 +55,70 @@ const MainTabNavigator = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="search" type="material" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="BucketList"
+        component={BucketListScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="bookmark" type="material" color={color} size={size} />
+          ),
+          tabBarBadge: bucketListCount > 0 ? bucketListCount : undefined,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="person" type="material" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="APITest"
+        component={APITestScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="code" type="material" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
+
+/**
+ * Root Stack Navigator
+ * - Wraps the tab navigator
+ * - Provides screens that should appear on top of the tabs
+ */
+const RootNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Main" component={MainTabNavigator} />
+      <Stack.Screen 
+        name="Detail" 
+        component={DetailScreen}
+        options={{
+          headerShown: false,
+          presentation: 'card', // Changed from 'modal' to 'card' to avoid potential issues
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default RootNavigator;

@@ -29,23 +29,44 @@ const bucketListSlice = createSlice({
     },
     
     // Add to bucket list actions
-    addToBucketList: (state, action: PayloadAction<{
-      venueId: string;
-      notes?: string;
-      tags?: string[];
-      priority?: 'low' | 'medium' | 'high';
-    }>) => {
-      state.loading = true;
-      state.error = null;
-    },
-    addToBucketListSuccess: (state, action: PayloadAction<BucketListItem>) => {
-      state.items.push(action.payload);
-      state.filteredItems = applyFilters(state.items, state.filters);
-      state.loading = false;
-    },
-    addToBucketListFailure: (state, action: PayloadAction<string>) => {
-      state.loading = false;
-      state.error = action.payload;
+    addToBucketList: (state, action: PayloadAction<any>) => {
+      // Create a bucket list item from the venue
+      const venue = action.payload;
+      const now = Date.now();
+      
+      const newItem: BucketListItem = {
+        id: venue.fsq_id, // Use the Foursquare venue ID as the item ID
+        venue: {
+          id: venue.fsq_id,
+          name: venue.name,
+          category: venue.categories && venue.categories.length > 0 
+            ? venue.categories[0].name 
+            : 'Restaurant',
+          address: venue.location ? 
+            venue.location.formatted_address || 
+            [venue.location.address, venue.location.locality, venue.location.region]
+              .filter(Boolean).join(', ') 
+            : '',
+          coordinates: venue.geocodes?.main ? {
+            latitude: venue.geocodes.main.latitude,
+            longitude: venue.geocodes.main.longitude
+          } : undefined,
+          photo: venue.photos && venue.photos.length > 0 
+            ? `${venue.photos[0].prefix}original${venue.photos[0].suffix}` 
+            : undefined,
+          rating: venue.rating,
+        },
+        addedAt: now,
+        notes: '',
+        tags: [],
+        priority: 'medium',
+      };
+      
+      // Add to items array if not already there
+      if (!state.items.some(item => item.id === newItem.id)) {
+        state.items.push(newItem);
+        state.filteredItems = applyFilters(state.items, state.filters);
+      }
     },
     
     // Update bucket list item actions
@@ -53,35 +74,18 @@ const bucketListSlice = createSlice({
       id: string;
       updates: Partial<BucketListItem>;
     }>) => {
-      state.loading = true;
-      state.error = null;
-    },
-    updateBucketListItemSuccess: (state, action: PayloadAction<BucketListItem>) => {
-      const index = state.items.findIndex(item => item.id === action.payload.id);
+      const { id, updates } = action.payload;
+      const index = state.items.findIndex(item => item.id === id);
       if (index !== -1) {
-        state.items[index] = action.payload;
+        state.items[index] = { ...state.items[index], ...updates };
+        state.filteredItems = applyFilters(state.items, state.filters);
       }
-      state.filteredItems = applyFilters(state.items, state.filters);
-      state.loading = false;
-    },
-    updateBucketListItemFailure: (state, action: PayloadAction<string>) => {
-      state.loading = false;
-      state.error = action.payload;
     },
     
     // Remove from bucket list actions
     removeFromBucketList: (state, action: PayloadAction<string>) => {
-      state.loading = true;
-      state.error = null;
-    },
-    removeFromBucketListSuccess: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter(item => item.id !== action.payload);
       state.filteredItems = applyFilters(state.items, state.filters);
-      state.loading = false;
-    },
-    removeFromBucketListFailure: (state, action: PayloadAction<string>) => {
-      state.loading = false;
-      state.error = action.payload;
     },
     
     // Mark as visited actions
@@ -90,20 +94,18 @@ const bucketListSlice = createSlice({
       rating?: number;
       review?: string;
     }>) => {
-      state.loading = true;
-      state.error = null;
-    },
-    markAsVisitedSuccess: (state, action: PayloadAction<BucketListItem>) => {
-      const index = state.items.findIndex(item => item.id === action.payload.id);
+      const { id, rating, review } = action.payload;
+      const index = state.items.findIndex(item => item.id === id);
+      
       if (index !== -1) {
-        state.items[index] = action.payload;
+        state.items[index] = {
+          ...state.items[index],
+          visitedAt: Date.now(),
+          userRating: rating,
+          review,
+        };
+        state.filteredItems = applyFilters(state.items, state.filters);
       }
-      state.filteredItems = applyFilters(state.items, state.filters);
-      state.loading = false;
-    },
-    markAsVisitedFailure: (state, action: PayloadAction<string>) => {
-      state.loading = false;
-      state.error = action.payload;
     },
     
     // Filter actions
@@ -193,17 +195,9 @@ export const {
   fetchBucketListSuccess,
   fetchBucketListFailure,
   addToBucketList,
-  addToBucketListSuccess,
-  addToBucketListFailure,
   updateBucketListItem,
-  updateBucketListItemSuccess,
-  updateBucketListItemFailure,
   removeFromBucketList,
-  removeFromBucketListSuccess,
-  removeFromBucketListFailure,
   markAsVisited,
-  markAsVisitedSuccess,
-  markAsVisitedFailure,
   setFilters,
   clearFilters,
 } = bucketListSlice.actions;

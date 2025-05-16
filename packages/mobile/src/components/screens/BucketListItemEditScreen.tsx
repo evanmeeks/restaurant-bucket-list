@@ -1,8 +1,9 @@
-import { useRoute } from "@react-navigation/native";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { BucketListItemEditRouteProp } from "../../navigation/types"; // Assuming types are in ../../navigation
-import { theme } from "../../theme"; // Assuming theme is in ../../theme
+import { useRoute } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { BucketListItemEditRouteProp } from '../../navigation/types'; // Assuming types are in ../../navigation
+import { theme } from '../../theme'; // Assuming theme is in ../../theme
+const noop = () => {};
 
 // Placeholder component for BucketListItemEditScreen
 export const BucketListItemEditScreen = () => {
@@ -16,8 +17,8 @@ export const BucketListItemEditScreen = () => {
       <Text style={styles.text}>
         (Placeholder: Implement form to edit notes, priority, tags for the item)
       </Text>
-      {/* You would typically include the BucketListItemForm here, pre-filled with item data */}
-      {/* <BucketListItemForm venueId={/* fetch venueId based on itemId *} initialData={/* fetch item data *} onSubmit={...} onCancel={...} /> */}
+      You would typically include the BucketListItemForm here, pre-filled with item data
+      <BucketListItemForm initialData={noop} onSubmit={noop} onCancel={noop} />
     </View>
   );
 };
@@ -25,22 +26,22 @@ export const BucketListItemEditScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 16,
-    backgroundColor: theme.lightColors?.background || "#FFFFFF",
+    backgroundColor: theme.lightColors?.background || '#FFFFFF',
   },
   title: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 16,
-    color: theme.lightColors?.primary || "#000000",
+    color: theme.lightColors?.primary || '#000000',
   },
   text: {
     fontSize: 16,
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 8,
-    color: theme.lightColors?.grey1 || "#424242",
+    color: theme.lightColors?.grey1 || '#424242',
   },
 });
 

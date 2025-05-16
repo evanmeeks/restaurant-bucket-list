@@ -1,0 +1,92 @@
+{
+  "fsq_id": "4df44456d1add5a8baa15599",
+  "categories": [
+    {
+      "id": 13039,
+      "name": "Barbecue Restaurant",
+      "icon": {
+        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bbq_",
+        "suffix": ".png"
+      }
+    }
+  ],
+  "description": "Award-winning BBQ with legendary lines. Opens at 11am, but you need to line up early to get the most popular items before they sell out. Known for brisket and ribs.",
+  "tel": "+15126531187",
+  "website": "http://franklinbbq.com",
+  "name": "Franklin Barbecue",
+  "price": 2,
+  "rating": 4.7,
+  "stats": {
+    "total_photos": 1423,
+    "total_ratings": 2897,
+    "total_tips": 421
+  },
+  "hours": {
+    "display": "Open Wed-Sun 11:00 AM-3:00 PM",
+    "is_local_holiday": false,
+    "open_now": false,
+    "regular": [
+      {
+        "close": "15:00",
+        "day": 3,
+        "open": "11:00"
+      },
+      {
+        "close": "15:00",
+        "day": 4,
+        "open": "11:00"
+      },
+      {
+        "close": "15:00",
+        "day": 5,
+        "open": "11:00"
+      },
+      {
+        "close": "15:00",
+        "day": 6,
+        "open": "11:00"
+      },
+      {
+        "close": "15:00",
+        "day": 7,
+        "open": "11:00"
+      }
+    ]
+  },
+  "location": {
+    "address": "900 E 11th St",
+    "address_extended": "and Branch",
+    "country": "US",
+    "cross_street": "and Branch",
+    "formatted_address": "900 E 11th St (and Branch), Austin, TX 78702",
+    "locality": "Austin",
+    "neighborhood": [
+      "East Austin"
+    ],
+    "postcode": "78702",
+    "region": "TX"
+  },
+  "geocodes": {
+    "main": {
+      "latitude": 30.2698011,
+      "longitude": -97.731159
+    }
+  },
+  "photos": [
+    {
+      "id": "51492ca0e4b07e4e1d5a0f8f",
+      "created_at": "2013-03-20T05:07:12.000Z",
+      "prefix": "https://fastly.4sqi.net/img/general/",
+      "suffix": "/13893025_hN-9vwOd_kgD9yNQgJTx7gIc7d9QoHzXXmG9I3G9GdE.jpg",
+      "width": 720,
+      "height": 960
+    }
+  ],
+  "tips": [
+    {
+      "id": "4e7bea1961a32ec68b13ca29",
+      "created_at": "2011-09-22T22:13:13.000Z",
+      "text": "Had the brisket, ribs, pulled pork, sausage, turkey and sides. While the sides are good, the brisket is the best I've had in my life. The rest of the meats are just as epic. Get there early!"
+    }
+  ]
+}

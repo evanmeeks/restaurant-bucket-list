@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "fsq_id": "5b2932a0f5e9d70039787cf2",
+      "categories": [
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "distance": 1302,
+      "geocodes": {
+        "main": {
+          "latitude": 41.89036,
+          "longitude": -87.63089
+        }
+      },
+      "location": {
+        "address": "661 N Clark St",
+        "country": "US",
+        "cross_street": "",
+        "formatted_address": "661 N Clark St, Chicago, IL 60654",
+        "locality": "Chicago",
+        "postcode": "60654",
+        "region": "IL"
+      },
+      "name": "Frontera Grill",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "49dce73af964a520bb5f1fe3",
+      "categories": [
+        {
+          "id": 13145,
+          "name": "Fast Food Restaurant",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [
+        {
+          "id": "a068d9dc6b9b4d48",
+          "name": "McDonald's"
+        }
+      ],
+      "distance": 762,
+      "geocodes": {
+        "main": {
+          "latitude": 41.88282,
+          "longitude": -87.62286
+        }
+      },
+      "location": {
+        "address": "230 N Michigan Ave",
+        "country": "US",
+        "cross_street": "",
+        "formatted_address": "230 N Michigan Ave, Chicago, IL 60601",
+        "locality": "Chicago",
+        "postcode": "60601",
+        "region": "IL"
+      },
+      "name": "McDonald's",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    }
+  ]
+}

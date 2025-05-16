@@ -1,9 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
+import * as Location from 'expo-location';
 import { useAppDispatch, useAppSelector } from '../store';
-import { 
-  getUserLocation, 
-  setLocationPermission 
-} from '../store/slices/venuesSlice';
+import { getUserLocation, setLocationPermission, setUserLocation } from '../store/slices/venuesSlice';
 import { Coordinates } from '../models/venue';
 
 interface GeolocationHook {
@@ -15,7 +13,7 @@ interface GeolocationHook {
 }
 
 /**
- * Custom hook for getting and tracking user location
+ * Custom hook for getting and tracking user location using Expo Location
  */
 export const useGeolocation = (): GeolocationHook => {
   const dispatch = useAppDispatch();
@@ -25,63 +23,70 @@ export const useGeolocation = (): GeolocationHook => {
   const [error, setError] = useState<string | null>(null);
 
   // Request location permissions and get location
-  const requestLocation = useCallback(() => {
-    setLoading(true);
-    setError(null);
-    dispatch(getUserLocation());
+  const requestLocation = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      // Request permissions
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      
+      // Update permission status in Redux
+      dispatch(setLocationPermission(status === 'granted'));
+      
+      if (status !== 'granted') {
+        setError('Location permission not granted');
+        setLoading(false);
+        return;
+      }
+      
+      // Get current position
+      const location = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.Balanced
+      });
+      
+      // Update location in Redux
+      const newCoordinates: Coordinates = {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+      };
+      
+      dispatch(setUserLocation(newCoordinates));
+      
+      // Also dispatch the getUserLocation action to trigger any sagas listening for it
+      dispatch(getUserLocation());
+      
+    } catch (error) {
+      console.error('Error getting location:', error);
+      setError(error.message || 'Failed to get location');
+    } finally {
+      setLoading(false);
+    }
   }, [dispatch]);
 
   // Check for location permissions on mount
   useEffect(() => {
-    // Check if geolocation is available
-    if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser');
-      return;
-    }
-
-    // Check permission status if available
-    if (navigator.permissions && navigator.permissions.query) {
-      navigator.permissions
-        .query({ name: 'geolocation' as PermissionName })
-        .then(result => {
-          if (result.state === 'granted') {
-            dispatch(setLocationPermission(true));
-            requestLocation();
-          } else if (result.state === 'prompt') {
-            // We'll wait for user to explicitly request location
-            dispatch(setLocationPermission(false));
-          } else if (result.state === 'denied') {
-            dispatch(setLocationPermission(false));
-            setError('Location permission denied');
-          }
-
-          // Listen for permission changes
-          result.addEventListener('change', () => {
-            dispatch(setLocationPermission(result.state === 'granted'));
-            
-            if (result.state === 'granted') {
-              requestLocation();
-            }
-          });
-        })
-        .catch(err => {
-          console.error('Error checking geolocation permission:', err);
-        });
-    }
-  }, [dispatch, requestLocation]);
-
-  // Update loading state when coordinates change
-  useEffect(() => {
-    if (coordinates) {
-      setLoading(false);
-    }
-  }, [coordinates]);
+    const checkPermission = async () => {
+      try {
+        const { status } = await Location.getForegroundPermissionsAsync();
+        dispatch(setLocationPermission(status === 'granted'));
+        
+        if (status === 'granted' && !coordinates) {
+          requestLocation();
+        }
+      } catch (err) {
+        console.error('Error checking location permission:', err);
+      }
+    };
+    
+    checkPermission();
+  }, [dispatch, requestLocation, coordinates]);
 
   return {
     coordinates,
     loading,
     error,
     permissionGranted,
-    requestLocation
+    requestLocation,
   };
 };

@@ -35,17 +35,20 @@ A cross-platform application (React Native for mobile, React for web) that allow
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/your-username/restaurant-bucket-list.git
    cd restaurant-bucket-list
    ```
 
 2. Install dependencies:
+
    ```bash
    yarn install
    ```
 
 3. Set up environment variables:
+
    ```bash
    # Create .env file in project root
    cp .env.example .env
@@ -53,14 +56,15 @@ A cross-platform application (React Native for mobile, React for web) that allow
    ```
 
 4. Start the development server:
+
    ```bash
    # For web
    yarn web:start
-   
+
    # For iOS
    yarn ios:pod-install  # Only needed on first run or when native dependencies change
    yarn ios
-   
+
    # For Android
    yarn android
    ```
@@ -103,6 +107,29 @@ yarn workspace web test
 
 # Run tests with coverage
 yarn test --coverage
+```
+
+## API
+
+```
+fetch('https://api.foursquare.com/v3/places/search?query=burger&ll=41.8781%2C-87.6298', {
+  headers: {
+    accept: 'application/json',
+    'accept-language': 'en-US,en;q=0.9',
+    authorization: 'fsq36FEPfDna8FEIc6x4QcQ3Kl+DsUIZ+goGfv1jqdtplbs=',
+    priority: 'u=1, i',
+    'Access-Control-Allow-Origin': '*',
+  },
+  referrer: 'https://docs.foursquare.com/',
+  referrerPolicy: 'strict-origin-when-cross-origin',
+  body: null,
+  method: 'GET',
+  mode: 'cors',
+  credentials: 'include',
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
 ```
 
 ## 🏗️ Project Structure

@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, Linking, Platform, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Linking, Platform, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import * as Location from 'expo-location'; // Import expo-location
 import { theme } from '../../theme';
 
 interface LocationPermissionRequestProps {
@@ -11,6 +12,37 @@ interface LocationPermissionRequestProps {
 export const LocationPermissionRequest: React.FC<LocationPermissionRequestProps> = ({
   onRequestLocation,
 }) => {
+  const [permissionStatus, setPermissionStatus] = useState<Location.PermissionStatus | null>(null);
+
+  // Check permission status on component mount
+  useEffect(() => {
+    checkPermissionStatus();
+  }, []);
+
+  // Check current permission status
+  const checkPermissionStatus = async () => {
+    try {
+      const { status } = await Location.getForegroundPermissionsAsync();
+      setPermissionStatus(status);
+    } catch (error) {
+      console.error('Error checking permission status:', error);
+    }
+  };
+
+  // Request location permission
+  const requestPermission = async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      setPermissionStatus(status);
+      
+      if (status === 'granted') {
+        onRequestLocation();
+      }
+    } catch (error) {
+      console.error('Error requesting permission:', error);
+    }
+  };
+
   const openSettings = () => {
     Linking.openSettings();
   };
@@ -42,7 +74,11 @@ export const LocationPermissionRequest: React.FC<LocationPermissionRequestProps>
           </View>
         </View>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.primaryButton} onPress={onRequestLocation}>
+          <TouchableOpacity 
+            style={styles.primaryButton} 
+            onPress={requestPermission}
+            testID="allow-location-button"
+          >
             <Icon name="location-on" size={20} color="white" style={styles.buttonIcon} />
             <Text style={styles.buttonTitle}>Allow Location Access</Text>
           </TouchableOpacity>

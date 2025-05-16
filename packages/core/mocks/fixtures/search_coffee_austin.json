@@ -1,0 +1,587 @@
+{
+  "results": [
+    {
+      "fsq_id": "50981188e4b0f94e062c8664",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 112,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266273,
+          "longitude": -97.743211
+        },
+        "roof": {
+          "latitude": 30.266273,
+          "longitude": -97.743211
+        }
+      },
+      "link": "/v3/places/50981188e4b0f94e062c8664",
+      "location": {
+        "address": "401 Congress Ave",
+        "census_block": "484530011032008",
+        "country": "US",
+        "cross_street": "at 4th St",
+        "dma": "Austin",
+        "formatted_address": "401 Congress Ave (at 4th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Houndstooth Coffee",
+      "related_places": {
+        "parent": {
+          "fsq_id": "4aef3ff6f964a520f2d621e3",
+          "categories": [
+            {
+              "id": 11124,
+              "name": "Office",
+              "short_name": "Office",
+              "plural_name": "Offices",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "Frost Bank Tower"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4d21da6dd7b0b1f7c980209f",
+      "categories": [
+        {
+          "id": 17069,
+          "name": "Grocery Store",
+          "short_name": "Grocery Store",
+          "plural_name": "Grocery Stores",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_grocery_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 17076,
+          "name": "Liquor Store",
+          "short_name": "Liquor Store",
+          "plural_name": "Liquor Stores",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_liquor_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 137,
+      "geocodes": {
+        "main": {
+          "latitude": 30.268359,
+          "longitude": -97.742196
+        },
+        "roof": {
+          "latitude": 30.268359,
+          "longitude": -97.742196
+        }
+      },
+      "link": "/v3/places/4d21da6dd7b0b1f7c980209f",
+      "location": {
+        "address": "609 Congress Ave",
+        "census_block": "484530011011037",
+        "country": "US",
+        "cross_street": "btw 6th St. & 7th St.",
+        "dma": "Austin",
+        "formatted_address": "609 Congress Ave (btw 6th St. & 7th St.), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Royal Blue Grocery",
+      "related_places": {
+        "children": []
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4f514151e4b092980c9a74a3",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 163,
+      "geocodes": {
+        "main": {
+          "latitude": 30.268648,
+          "longitude": -97.742289
+        },
+        "roof": {
+          "latitude": 30.268648,
+          "longitude": -97.742289
+        }
+      },
+      "link": "/v3/places/4f514151e4b092980c9a74a3",
+      "location": {
+        "address": "617 Congress Ave",
+        "census_block": "484530011011037",
+        "country": "US",
+        "dma": "Austin",
+        "formatted_address": "617 Congress Ave, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "The Hideout Coffee House",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "423a1a00f964a5202f201fe3",
+      "categories": [
+        {
+          "id": 13016,
+          "name": "Lounge",
+          "short_name": "Lounge",
+          "plural_name": "Lounges",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/default_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 252,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266915,
+          "longitude": -97.745458
+        },
+        "roof": {
+          "latitude": 30.266915,
+          "longitude": -97.745458
+        }
+      },
+      "link": "/v3/places/423a1a00f964a5202f201fe3",
+      "location": {
+        "address": "218 W 4th St",
+        "census_block": "484530011022004",
+        "country": "US",
+        "cross_street": "at Lavaca St.",
+        "dma": "Austin",
+        "formatted_address": "218 W 4th St (at Lavaca St.), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Halcyon",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "59fe1c21a6fe4d2c0dc6c40b",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 186,
+      "geocodes": {
+        "main": {
+          "latitude": 30.268716,
+          "longitude": -97.742279
+        },
+        "roof": {
+          "latitude": 30.268716,
+          "longitude": -97.742279
+        }
+      },
+      "link": "/v3/places/59fe1c21a6fe4d2c0dc6c40b",
+      "location": {
+        "address": "621 Congress Ave, Austin, TX 78701, United States",
+        "census_block": "484530011011037",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "621 Congress Ave, Austin, TX 78701, United States, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Coffeehouse At Caroline",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "63012ac7a773304e147384a9",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 64,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266761,
+          "longitude": -97.740857
+        },
+        "roof": {
+          "latitude": 30.266761,
+          "longitude": -97.740857
+        }
+      },
+      "link": "/v3/places/63012ac7a773304e147384a9",
+      "location": {
+        "address": "506 San Jacinto Blvd",
+        "census_block": "484530011032006",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "506 San Jacinto Blvd, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "The Coffee Bar at tommie",
+      "related_places": {
+        "parent": {
+          "fsq_id": "60ae78a8d2310a5f167a88f5",
+          "categories": [
+            {
+              "id": 19014,
+              "name": "Hotel",
+              "short_name": "Hotel",
+              "plural_name": "Hotels",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/hotel_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "Thompson Austin - part of Hyatt"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "598319ffd41bb71b6c3738c8",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 84,
+      "geocodes": {
+        "main": {
+          "latitude": 30.269203,
+          "longitude": -97.741237
+        },
+        "roof": {
+          "latitude": 30.269203,
+          "longitude": -97.741237
+        }
+      },
+      "link": "/v3/places/598319ffd41bb71b6c3738c8",
+      "location": {
+        "address": "720 Brazos St",
+        "census_block": "484530011011017",
+        "country": "US",
+        "cross_street": "8th St",
+        "dma": "Austin",
+        "formatted_address": "720 Brazos St (8th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Lucky Lab Coffee Co.",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "6340469f671b4f0e43c22e9e",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "VeryLikelyOpen",
+      "distance": 366,
+      "geocodes": {
+        "main": {
+          "latitude": 30.264289,
+          "longitude": -97.74131
+        },
+        "roof": {
+          "latitude": 30.264289,
+          "longitude": -97.74131
+        }
+      },
+      "link": "/v3/places/6340469f671b4f0e43c22e9e",
+      "location": {
+        "address": "207 San Jacinto Blvd",
+        "address_extended": "Ste 200",
+        "census_block": "484530011032022",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "207 San Jacinto Blvd, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Revolucion Coffee & Juice",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4bdad6753904a593ea84479e",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 371,
+      "geocodes": {
+        "main": {
+          "latitude": 30.268503,
+          "longitude": -97.739344
+        },
+        "roof": {
+          "latitude": 30.268503,
+          "longitude": -97.739344
+        }
+      },
+      "link": "/v3/places/4bdad6753904a593ea84479e",
+      "location": {
+        "address": "301 E 8th St",
+        "address_extended": "Ste 213",
+        "census_block": "484530011011019",
+        "country": "US",
+        "cross_street": "San Jacinto Blvd",
+        "dma": "Austin",
+        "formatted_address": "301 E 8th St (San Jacinto Blvd), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Holy Grounds",
+      "related_places": {
+        "parent": {
+          "fsq_id": "49c5c0b7f964a52022571fe3",
+          "categories": [
+            {
+              "id": 12101,
+              "name": "Church",
+              "short_name": "Church",
+              "plural_name": "Churches",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/building/religious_church_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "St David's Episcopal Church"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4ad62034f964a5203a0521e3",
+      "categories": [
+        {
+          "id": 13148,
+          "name": "French Restaurant",
+          "short_name": "French",
+          "plural_name": "French Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/french_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 367,
+      "geocodes": {
+        "main": {
+          "latitude": 30.263971,
+          "longitude": -97.74205
+        },
+        "roof": {
+          "latitude": 30.263971,
+          "longitude": -97.74205
+        }
+      },
+      "link": "/v3/places/4ad62034f964a5203a0521e3",
+      "location": {
+        "address": "200 San Jacinto Blvd",
+        "address_extended": "Ste A",
+        "census_block": "484530011032021",
+        "country": "US",
+        "cross_street": "at 2nd St",
+        "dma": "Austin",
+        "formatted_address": "200 San Jacinto Blvd (at 2nd St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Le Café Crêpe",
+      "related_places": {
+        "parent": {
+          "fsq_id": "45f05745f964a520bf431fe3",
+          "categories": [
+            {
+              "id": 19014,
+              "name": "Hotel",
+              "short_name": "Hotel",
+              "plural_name": "Hotels",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/hotel_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "Hampton Inn & Suites Austin-Downtown/Convention Center"
+        }
+      },
+      "timezone": "America/Chicago"
+    }
+  ],
+  "context": {
+    "geo_bounds": {
+      "circle": {
+        "center": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        },
+        "radius": 1000
+      }
+    }
+  }
+}

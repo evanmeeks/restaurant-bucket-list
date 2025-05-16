@@ -5,9 +5,11 @@
   "main": "src/index.ts",
   "private": true,
   "dependencies": {
+    "@foursquare/foursquare-places": "^1.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
@@ -20,12 +22,15 @@
     "web:start": "yarn workspace web start",
     "mobile:start": "yarn workspace mobile start",
     "ios": "yarn workspace mobile ios",
-    "android": "yarn workspace mobile android"
+    "android": "yarn workspace mobile android",
+    "ios:pod-install": "cd packages/mobile/ios && pod deintegrate && pod install --repo-update",
+    "fix-pods": "cd packages/mobile/ios && rm -rf Pods Podfile.lock && pod deintegrate && pod install --repo-update"
   },
   "resolutions": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.73.6"
+    "react-native": "0.73.6",
+    "hermes-engine": "~0.13.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.0",
@@ -40,6 +45,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
+    "react-native-dotenv": "^3.4.11",
     "typescript": "^5.0.4"
   }
 }

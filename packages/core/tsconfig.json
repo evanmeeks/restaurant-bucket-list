@@ -7,6 +7,10 @@
     "declaration": true,
     "declarationMap": true
   },
+  "paths": {
+    "@/*": ["src/*"],
+    "core/*": ["../core/src/*"]
+  },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]
 }

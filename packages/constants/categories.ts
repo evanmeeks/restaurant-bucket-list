@@ -8,6 +8,7 @@ import { theme } from '../theme';
  * - icon: Material icon name
  * - color: Brand color (optional)
  */
+
 export const categories = [
   {
     id: '13065',
@@ -180,23 +181,30 @@ export const getCategoriesGrouped = () => {
     },
     {
       title: 'Cuisine Types',
-      data: categories.filter(c => 
-        ['Asian', 'Mexican', 'American', 'Italian', 'Chinese', 'Japanese', 'Indian', 'Thai'].includes(c.name)
+      data: categories.filter(c =>
+        [
+          'Asian',
+          'Mexican',
+          'American',
+          'Italian',
+          'Chinese',
+          'Japanese',
+          'Indian',
+          'Thai',
+        ].includes(c.name)
       ),
     },
     {
       title: 'Meal Types',
-      data: categories.filter(c => 
+      data: categories.filter(c =>
         ['Breakfast', 'Fast Food', 'Seafood', 'BBQ', 'Steakhouse', 'Dessert'].includes(c.name)
       ),
     },
     {
       title: 'Drinks & Others',
-      data: categories.filter(c => 
-        ['Cafe', 'Bar', 'Wine Bar', 'Brewery'].includes(c.name)
-      ),
+      data: categories.filter(c => ['Cafe', 'Bar', 'Wine Bar', 'Brewery'].includes(c.name)),
     },
   ];
-  
+
   return groups;
 };

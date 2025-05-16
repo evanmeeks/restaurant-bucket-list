@@ -10,38 +10,57 @@ import {
   delay
 } from 'redux-saga/effects';
 import { eventChannel, END } from 'redux-saga';
+import * as Location from 'expo-location'; // Import expo-location
 import { 
   getUserLocation, 
   setUserLocation, 
-  locationError,
-  setLocationPermission
+  setLocationPermission,
+  fetchNearbyVenuesFailure
 } from '../slices/venuesSlice';
 import { Coordinates } from '../../models/venue';
 
-// Create a channel to handle watch position
+// Create a channel for location updates
 function createLocationChannel() {
   return eventChannel(emitter => {
-    // Watch position and emit location updates
-    const watchId = navigator.geolocation.watchPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        emitter({ latitude, longitude });
-      },
-      (error) => {
+    // Use expo-location instead of navigator.geolocation
+    let watchId;
+    
+    const startWatching = async () => {
+      try {
+        // Request permissions first
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        
+        if (status !== 'granted') {
+          emitter(END);
+          return;
+        }
+        
+        // Start watching position
+        watchId = await Location.watchPositionAsync(
+          {
+            accuracy: Location.Accuracy.Balanced,
+            timeInterval: 5000,
+            distanceInterval: 10
+          },
+          (location) => {
+            const { latitude, longitude } = location.coords;
+            emitter({ latitude, longitude });
+          }
+        );
+      } catch (error) {
+        console.error('Error watching location:', error);
         emitter(END);
-        console.error('Geolocation error:', error);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 20000,
-        maximumAge: 1000,
-        distanceFilter: 10 // Minimum distance (meters) between updates
       }
-    );
-
+    };
+    
+    // Start watching location
+    startWatching();
+    
     // Return unsubscribe function
     return () => {
-      navigator.geolocation.clearWatch(watchId);
+      if (watchId) {
+        watchId.remove();
+      }
     };
   });
 }
@@ -49,20 +68,23 @@ function createLocationChannel() {
 // Get current position once
 function* getCurrentPosition() {
   try {
-    const position = yield call(
-      () => 
-        new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(
-            resolve,
-            reject,
-            {
-              enableHighAccuracy: true,
-              timeout: 10000,
-              maximumAge: 1000
-            }
-          );
-        })
-    );
+    // Request permissions first
+    const permissionResponse = yield call(Location.requestForegroundPermissionsAsync);
+    
+    if (permissionResponse.status !== 'granted') {
+      console.log('Location permission not granted');
+      yield put(setLocationPermission(false));
+      yield put(fetchNearbyVenuesFailure('Location permission denied'));
+      return null;
+    }
+    
+    // Set permission granted
+    yield put(setLocationPermission(true));
+    
+    // Get current position
+    const position = yield call(Location.getCurrentPositionAsync, {
+      accuracy: Location.Accuracy.Balanced
+    });
     
     const coordinates: Coordinates = {
       latitude: position.coords.latitude,
@@ -70,18 +92,11 @@ function* getCurrentPosition() {
     };
     
     yield put(setUserLocation(coordinates));
-    yield put(setLocationPermission(true));
     
     return coordinates;
   } catch (error) {
     console.error('Error getting current position:', error);
-    yield put(locationError(error.message));
-    
-    if (error.code === 1) {
-      // Permission denied
-      yield put(setLocationPermission(false));
-    }
-    
+    yield put(fetchNearbyVenuesFailure('Failed to get location: ' + error.message));
     return null;
   }
 }
@@ -98,12 +113,12 @@ function* watchLocationUpdates() {
         yield put(setUserLocation(coordinates));
       } catch (error) {
         console.error('Error in location channel:', error);
-        yield put(locationError(error.message));
+        yield put(fetchNearbyVenuesFailure('Location update error: ' + error.message));
       }
     }
   } catch (error) {
     console.error('Error creating location channel:', error);
-    yield put(locationError(error.message));
+    yield put(fetchNearbyVenuesFailure('Location channel error: ' + error.message));
   } finally {
     if (yield cancelled()) {
       console.log('Location watching cancelled');

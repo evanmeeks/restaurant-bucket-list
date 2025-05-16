@@ -1,7 +1,43 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { VenuesState, Venue, Coordinates } from '../../models/app-state';
+import { Coordinates, Venue } from '../../models/venue';
+
+interface NearbyVenuesState {
+  venues: Venue[];
+  loading: boolean;
+  error: string | null;
+}
+
+interface RecommendedVenuesState {
+  venues: Venue[];
+  loading: boolean;
+  error: string | null;
+}
+
+interface SearchVenuesState {
+  venues: Venue[];
+  loading: boolean;
+  error: string | null;
+}
+
+interface FoursquareDataState {
+  rawJson: string | null; // Store raw JSON response
+  loading: boolean;
+  error: string | null;
+}
+
+interface VenuesState {
+  userLocation: Coordinates | null;
+  locationPermissionGranted: boolean;
+  nearby: NearbyVenuesState;
+  recommended: RecommendedVenuesState;
+  search: SearchVenuesState;
+  selectedVenue: Venue | null;
+  foursquareData: FoursquareDataState;
+}
 
 const initialState: VenuesState = {
+  userLocation: null,
+  locationPermissionGranted: false,
   nearby: {
     venues: [],
     loading: false,
@@ -14,116 +50,126 @@ const initialState: VenuesState = {
   },
   search: {
     venues: [],
-    query: '',
     loading: false,
     error: null,
   },
   selectedVenue: null,
-  userLocation: null,
-  locationPermissionGranted: false,
+  foursquareData: {
+    rawJson: null,
+    loading: false,
+    error: null,
+  },
 };
 
 const venuesSlice = createSlice({
   name: 'venues',
   initialState,
   reducers: {
-    // User location actions
-    getUserLocation: (state) => {
-      // This is a saga trigger, no state change
-    },
-    setUserLocation: (state, action: PayloadAction<Coordinates>) => {
-      state.userLocation = action.payload;
-    },
-    setLocationPermission: (state, action: PayloadAction<boolean>) => {
-      state.locationPermissionGranted = action.payload;
-    },
-    locationError: (state, action: PayloadAction<string>) => {
-      state.userLocation = null;
-      // Not setting an error state here as we handle this at the UI level
-    },
-    
-    // Nearby venues actions
-    fetchNearbyVenues: (state, action: PayloadAction<{
-      coordinates: Coordinates;
-      radius?: number;
-      categories?: string[];
-    }>) => {
+    getUserLocation(state) {
       state.nearby.loading = true;
       state.nearby.error = null;
     },
-    fetchNearbyVenuesSuccess: (state, action: PayloadAction<Venue[]>) => {
+    setUserLocation(state, action: PayloadAction<Coordinates>) {
+      state.userLocation = action.payload;
+      state.nearby.loading = false;
+    },
+    setLocationPermission(state, action: PayloadAction<boolean>) {
+      state.locationPermissionGranted = action.payload;
+    },
+    // Change this reducer name to match the exported action name
+    fetchNearbyVenues(state, _action: PayloadAction<{ coordinates: Coordinates; radius?: number; categories?: string[] }>) {
+      state.nearby.loading = true;
+      state.nearby.error = null;
+    },
+    fetchNearbyVenuesSuccess(state, action: PayloadAction<Venue[]>) {
+      console.log(
+        `%c action.payload fetchNearbyVenuesSuccess ` + JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
       state.nearby.venues = action.payload;
       state.nearby.loading = false;
+      state.nearby.error = null;
     },
-    fetchNearbyVenuesFailure: (state, action: PayloadAction<string>) => {
+    fetchNearbyVenuesFailure(state, action: PayloadAction<string>) {
       state.nearby.loading = false;
       state.nearby.error = action.payload;
+      console.log(
+        `%c action.payload fetchNearbyVenuesFailure ` + JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
     },
-    
-    // Recommended venues actions
-    fetchRecommendedVenues: (state, action: PayloadAction<{
-      coordinates: Coordinates;
-      limit?: number;
-    }>) => {
+    fetchRecommendedVenues(state, _action: PayloadAction<{ coordinates: Coordinates; limit?: number }>) {
       state.recommended.loading = true;
       state.recommended.error = null;
     },
-    fetchRecommendedVenuesSuccess: (state, action: PayloadAction<Venue[]>) => {
+    fetchRecommendedVenuesSuccess(state, action: PayloadAction<Venue[]>) {
       state.recommended.venues = action.payload;
+      console.log(
+        `%c action.payload fetchRecommendedVenuesSuccess ` +
+          JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
       state.recommended.loading = false;
+      state.recommended.error = null;
     },
-    fetchRecommendedVenuesFailure: (state, action: PayloadAction<string>) => {
+    fetchRecommendedVenuesFailure(state, action: PayloadAction<string>) {
       state.recommended.loading = false;
       state.recommended.error = action.payload;
+      console.log(
+        `%c action.payload fetchRecommendedVenuesFailure ` +
+          JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
     },
-    
-    // Search venues actions
-    searchVenues: (state, action: PayloadAction<{
-      coordinates: Coordinates;
-      query: string;
-      categories?: string[];
-      radius?: number;
-    }>) => {
+    // Add missing actions for search and venue selection
+    searchVenues(state, _action: PayloadAction<{ coordinates: Coordinates; query: string; categories?: string[]; radius?: number }>) {
       state.search.loading = true;
       state.search.error = null;
-      state.search.query = action.payload.query;
     },
-    searchVenuesSuccess: (state, action: PayloadAction<Venue[]>) => {
+    searchVenuesSuccess(state, action: PayloadAction<Venue[]>) {
       state.search.venues = action.payload;
       state.search.loading = false;
+      state.search.error = null;
     },
-    searchVenuesFailure: (state, action: PayloadAction<string>) => {
+    searchVenuesFailure(state, action: PayloadAction<string>) {
       state.search.loading = false;
       state.search.error = action.payload;
     },
-    
-    // Selected venue actions
-    selectVenue: (state, action: PayloadAction<string>) => {
-      // This triggers a saga to fetch venue details
+    selectVenue(state, _action: PayloadAction<string>) {
+      // This is just a trigger for the saga, no state changes needed
     },
-    setSelectedVenue: (state, action: PayloadAction<Venue>) => {
+    setSelectedVenue(state, action: PayloadAction<Venue>) {
       state.selectedVenue = action.payload;
     },
-    clearSelectedVenue: (state) => {
-      state.selectedVenue = null;
+    fetchFoursquareData(state, _action: PayloadAction<{ coordinates: Coordinates }>) {
+      state.foursquareData.loading = true;
+      state.foursquareData.error = null;
+      state.foursquareData.rawJson = null;
     },
-    
-    // Clear actions
-    clearVenues: (state) => {
-      state.nearby.venues = [];
-      state.recommended.venues = [];
-      state.search.venues = [];
-      state.selectedVenue = null;
+    fetchFoursquareDataSuccess(state, action: PayloadAction<string>) {
+      state.foursquareData.rawJson = action.payload;
+      console.log(
+        `%c action.payload fetchFoursquareDataSuccess ` + JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
+      state.foursquareData.loading = false;
+      state.foursquareData.error = null;
+    },
+    fetchFoursquareDataFailure(state, action: PayloadAction<string>) {
+      state.foursquareData.loading = false;
+      console.log(
+        `%c action.payload fetchFoursquareDataFailure ` + JSON.stringify(action.payload, null, 4),
+        'color:white; background:green; font-size: 20px'
+      );
+      state.foursquareData.error = action.payload;
     },
   },
 });
 
-// Export actions
 export const {
   getUserLocation,
   setUserLocation,
   setLocationPermission,
-  locationError,
   fetchNearbyVenues,
   fetchNearbyVenuesSuccess,
   fetchNearbyVenuesFailure,
@@ -135,9 +181,9 @@ export const {
   searchVenuesFailure,
   selectVenue,
   setSelectedVenue,
-  clearSelectedVenue,
-  clearVenues,
+  fetchFoursquareData,
+  fetchFoursquareDataSuccess,
+  fetchFoursquareDataFailure,
 } = venuesSlice.actions;
 
-// Export reducer
 export default venuesSlice.reducer;

@@ -1,0 +1,13 @@
+diff --git a/index.js b/index.js
+index dc26751..2eecff0 100644
+--- a/index.js
++++ b/index.js
+@@ -120,7 +120,7 @@ module.exports = {
+     return require('./Libraries/Geolocation/Geolocation');
+   },
+   get Image(): Image {
+-    return require('./Libraries/Image/Image');
++    return require('./Libraries/Components/Image/Image');
+   },
+   get ImageBackground(): ImageBackground {
+     return require('./Libraries/Image/ImageBackground');

@@ -6,6 +6,7 @@ export * from './models/app-state';
 
 // Export API services
 export * from './api/foursquare';
+export * from './api/foursquareV3';
 
 // Export hooks
 export * from './hooks/useGeolocation';

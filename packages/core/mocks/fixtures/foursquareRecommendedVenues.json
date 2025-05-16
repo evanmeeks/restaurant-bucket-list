@@ -1,0 +1,52 @@
+{
+    "results": [
+        {
+            "fsq_id": "12345",
+            "name": "Example Restaurant",
+            "location": {
+                "address": "123 Example St",
+                "city": "San Francisco",
+                "state": "CA",
+                "country": "US",
+                "lat": 37.7749,
+                "lng": -122.4194
+            },
+            "categories": [
+                {
+                    "id": "13065",
+                    "name": "Restaurant"
+                }
+            ],
+            "rating": 8.5
+        },
+        {
+            "fsq_id": "67890",
+            "name": "Another Cafe",
+            "location": {
+                "address": "456 Sample Ave",
+                "city": "San Francisco",
+                "state": "CA",
+                "country": "US",
+                "lat": 37.7750,
+                "lng": -122.4195
+            },
+            "categories": [
+                {
+                    "id": "13034",
+                    "name": "Cafe"
+                }
+            ],
+            "rating": 7.8
+        }
+    ],
+    "context": {
+        "geo_bounds": {
+            "circle": {
+                "center": {
+                    "latitude": 37.7749,
+                    "longitude": -122.4194
+                }
+            }
+        }
+    }
+}

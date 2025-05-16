@@ -1,0 +1,689 @@
+{
+  "results": [
+    {
+      "fsq_id": "4c77cbe5947ca1cd90694837",
+      "categories": [
+        {
+          "id": 10039,
+          "name": "Music Venue",
+          "short_name": "Music Venue",
+          "plural_name": "Music Venues",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 452,
+      "geocodes": {
+        "main": {
+          "latitude": 30.265369,
+          "longitude": -97.747148
+        },
+        "roof": {
+          "latitude": 30.265369,
+          "longitude": -97.747148
+        }
+      },
+      "link": "/v3/places/4c77cbe5947ca1cd90694837",
+      "location": {
+        "address": "310 W 2nd St",
+        "census_block": "484530011023001",
+        "country": "US",
+        "cross_street": "at Guadalupe St",
+        "dma": "Austin",
+        "formatted_address": "310 W 2nd St (at Guadalupe St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "3TEN Austin City Limits Live",
+      "related_places": {
+        "children": []
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "574074c1498ec610c4e112d0",
+      "categories": [
+        {
+          "id": 13236,
+          "name": "Italian Restaurant",
+          "short_name": "Italian",
+          "plural_name": "Italian Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 253,
+      "geocodes": {
+        "main": {
+          "latitude": 30.265907,
+          "longitude": -97.744648
+        },
+        "roof": {
+          "latitude": 30.265907,
+          "longitude": -97.744648
+        }
+      },
+      "link": "/v3/places/574074c1498ec610c4e112d0",
+      "location": {
+        "address": "303 Colorado St",
+        "address_extended": "Ste 200",
+        "census_block": "484530011022006",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "303 Colorado St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Red Ash",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "599b3f4bacb00b6689fcd625",
+      "categories": [
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 423,
+      "geocodes": {
+        "main": {
+          "latitude": 30.26364,
+          "longitude": -97.743758
+        },
+        "roof": {
+          "latitude": 30.26364,
+          "longitude": -97.743758
+        }
+      },
+      "link": "/v3/places/599b3f4bacb00b6689fcd625",
+      "location": {
+        "address": "111 Congress Ave",
+        "census_block": "484530011032026",
+        "country": "US",
+        "cross_street": "Cesar Chavez",
+        "dma": "Austin",
+        "formatted_address": "111 Congress Ave (Cesar Chavez), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Fareground Austin",
+      "related_places": {
+        "children": [
+          {
+            "fsq_id": "5cfee8c5829b0c002cf9346a",
+            "categories": [
+              {
+                "id": 13003,
+                "name": "Bar",
+                "short_name": "Bar",
+                "plural_name": "Bars",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+                  "suffix": ".png"
+                }
+              },
+              {
+                "id": 13068,
+                "name": "American Restaurant",
+                "short_name": "American",
+                "plural_name": "American Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Ellis"
+          },
+          {
+            "fsq_id": "5a63b7ddefa82a09cccc0174",
+            "categories": [
+              {
+                "id": 17061,
+                "name": "Cheese Store",
+                "short_name": "Cheese Store",
+                "plural_name": "Cheese Stores",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_cheese_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Antonelli's Cheese Shop"
+          },
+          {
+            "fsq_id": "6143c763ce6e2f47827997ed",
+            "categories": [
+              {
+                "id": 13134,
+                "name": "Comfort Food Restaurant",
+                "short_name": "Comfort Food",
+                "plural_name": "Comfort Food Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                  "suffix": ".png"
+                }
+              },
+              {
+                "id": 13148,
+                "name": "French Restaurant",
+                "short_name": "French",
+                "plural_name": "French Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/french_",
+                  "suffix": ".png"
+                }
+              },
+              {
+                "id": 13334,
+                "name": "Sandwich Spot",
+                "short_name": "Sandwich Spot",
+                "plural_name": "Sandwich Spots",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Austin Rotisserie & Sandwicherie"
+          },
+          {
+            "fsq_id": "5a6660d91ffed751c7577e83",
+            "categories": [
+              {
+                "id": 13145,
+                "name": "Fast Food Restaurant",
+                "short_name": "Fast Food",
+                "plural_name": "Fast Food Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                  "suffix": ".png"
+                }
+              },
+              {
+                "id": 13314,
+                "name": "New American Restaurant",
+                "short_name": "New American",
+                "plural_name": "New American Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Henbit"
+          },
+          {
+            "fsq_id": "5c5dcf198afbe0003a481938",
+            "categories": [
+              {
+                "id": 13236,
+                "name": "Italian Restaurant",
+                "short_name": "Italian",
+                "plural_name": "Italian Restaurants",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+                  "suffix": ".png"
+                }
+              }
+            ],
+            "name": "Italic"
+          }
+        ]
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "568c8b18498edb7318117b20",
+      "categories": [
+        {
+          "id": 10032,
+          "name": "Night Club",
+          "short_name": "Night Club",
+          "plural_name": "Night Clubs",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/nightclub_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13003,
+          "name": "Bar",
+          "short_name": "Bar",
+          "plural_name": "Bars",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 281,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266035,
+          "longitude": -97.740349
+        },
+        "roof": {
+          "latitude": 30.266035,
+          "longitude": -97.740349
+        }
+      },
+      "link": "/v3/places/568c8b18498edb7318117b20",
+      "location": {
+        "address": "305 E 5th St",
+        "census_block": "484530011032010",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "305 E 5th St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Antone's",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4a34399cf964a520eb9b1fe3",
+      "categories": [
+        {
+          "id": 10010,
+          "name": "Comedy Club",
+          "short_name": "Comedy Club",
+          "plural_name": "Comedy Clubs",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/comedyclub_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 10039,
+          "name": "Music Venue",
+          "short_name": "Music Venue",
+          "plural_name": "Music Venues",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/arts_entertainment/musicvenue_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 556,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266316,
+          "longitude": -97.737475
+        },
+        "roof": {
+          "latitude": 30.266316,
+          "longitude": -97.737475
+        }
+      },
+      "link": "/v3/places/4a34399cf964a520eb9b1fe3",
+      "location": {
+        "address": "525 E 6th St",
+        "census_block": "484530011032003",
+        "country": "US",
+        "cross_street": "at Red River St.",
+        "dma": "Austin",
+        "formatted_address": "525 E 6th St (at Red River St.), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Esther's Follies",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "50981188e4b0f94e062c8664",
+      "categories": [
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13065,
+          "name": "Restaurant",
+          "short_name": "Restaurant",
+          "plural_name": "Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 112,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266273,
+          "longitude": -97.743211
+        },
+        "roof": {
+          "latitude": 30.266273,
+          "longitude": -97.743211
+        }
+      },
+      "link": "/v3/places/50981188e4b0f94e062c8664",
+      "location": {
+        "address": "401 Congress Ave",
+        "census_block": "484530011032008",
+        "country": "US",
+        "cross_street": "at 4th St",
+        "dma": "Austin",
+        "formatted_address": "401 Congress Ave (at 4th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Houndstooth Coffee",
+      "related_places": {
+        "parent": {
+          "fsq_id": "4aef3ff6f964a520f2d621e3",
+          "categories": [
+            {
+              "id": 11124,
+              "name": "Office",
+              "short_name": "Office",
+              "plural_name": "Offices",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "Frost Bank Tower"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "43598100f964a520eb281fe3",
+      "categories": [
+        {
+          "id": 13314,
+          "name": "New American Restaurant",
+          "short_name": "New American",
+          "plural_name": "New American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13343,
+          "name": "South American Restaurant",
+          "short_name": "South American",
+          "plural_name": "South American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/argentinian_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13344,
+          "name": "Southern Food Restaurant",
+          "short_name": "Southern / Soul",
+          "plural_name": "Southern Food Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/southern_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 606,
+      "geocodes": {
+        "drop_off": {
+          "latitude": 30.263945,
+          "longitude": -97.738144
+        },
+        "main": {
+          "latitude": 30.263887,
+          "longitude": -97.73799
+        },
+        "roof": {
+          "latitude": 30.263887,
+          "longitude": -97.73799
+        }
+      },
+      "link": "/v3/places/43598100f964a520eb281fe3",
+      "location": {
+        "address": "303 Red River St",
+        "census_block": "484530011032015",
+        "country": "US",
+        "cross_street": "at E 3rd St",
+        "dma": "Austin",
+        "formatted_address": "303 Red River St (at E 3rd St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Moonshine Patio Bar & Grill",
+      "related_places": {
+        "children": []
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4a402fe5f964a52064a41fe3",
+      "categories": [
+        {
+          "id": 13031,
+          "name": "Burger Joint",
+          "short_name": "Burgers",
+          "plural_name": "Burger Joints",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13039,
+          "name": "Deli",
+          "short_name": "Deli",
+          "plural_name": "Delis",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 623,
+      "geocodes": {
+        "main": {
+          "latitude": 30.26947,
+          "longitude": -97.749065
+        },
+        "roof": {
+          "latitude": 30.26947,
+          "longitude": -97.749065
+        }
+      },
+      "link": "/v3/places/4a402fe5f964a52064a41fe3",
+      "location": {
+        "address": "609 W 6th St",
+        "census_block": "484530011021002",
+        "country": "US",
+        "cross_street": "Nueces St.",
+        "dma": "Austin",
+        "formatted_address": "609 W 6th St (Nueces St.), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Walton's Fancy & Staple",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4a3c3dc9f964a5204ea11fe3",
+      "categories": [
+        {
+          "id": 13009,
+          "name": "Cocktail Bar",
+          "short_name": "Cocktail",
+          "plural_name": "Cocktail Bars",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13148,
+          "name": "French Restaurant",
+          "short_name": "French",
+          "plural_name": "French Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/french_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 211,
+      "geocodes": {
+        "drop_off": {
+          "latitude": 30.266687,
+          "longitude": -97.745241
+        },
+        "main": {
+          "latitude": 30.26688,
+          "longitude": -97.745187
+        },
+        "roof": {
+          "latitude": 30.26688,
+          "longitude": -97.745187
+        }
+      },
+      "link": "/v3/places/4a3c3dc9f964a5204ea11fe3",
+      "location": {
+        "address": "208 W 4th St",
+        "census_block": "484530011022004",
+        "country": "US",
+        "cross_street": "Colorado St.",
+        "dma": "Austin",
+        "formatted_address": "208 W 4th St (Colorado St.), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Péché",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4aa06c38f964a520923f20e3",
+      "categories": [
+        {
+          "id": 13383,
+          "name": "Steakhouse",
+          "short_name": "Steakhouse",
+          "plural_name": "Steakhouses",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/steakhouse_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 247,
+      "geocodes": {
+        "main": {
+          "latitude": 30.269531,
+          "longitude": -97.743464
+        },
+        "roof": {
+          "latitude": 30.269531,
+          "longitude": -97.743464
+        }
+      },
+      "link": "/v3/places/4aa06c38f964a520923f20e3",
+      "location": {
+        "address": "114 W 7th St",
+        "address_extended": "Ste 110",
+        "census_block": "484530011012038",
+        "country": "US",
+        "cross_street": "at Colorado St",
+        "dma": "Austin",
+        "formatted_address": "114 W 7th St (at Colorado St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Perry's Steakhouse & Grille - Downtown Austin",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    }
+  ],
+  "context": {
+    "geo_bounds": {
+      "circle": {
+        "center": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        },
+        "radius": 661
+      }
+    }
+  }
+}

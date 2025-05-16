@@ -7,3 +7,7 @@ bun.lockb
 package.json
 .env*
 .expo
+.DS_Store
+.vscode
+env.ts
+docs

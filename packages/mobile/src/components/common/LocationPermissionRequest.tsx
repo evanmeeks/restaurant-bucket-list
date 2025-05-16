@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   View, 
   Text, 
   StyleSheet, 
   Linking, 
   Platform,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import { Button, Icon } from '@rneui/themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import * as Location from 'expo-location';
 import { theme } from '../../theme';
 
 interface LocationPermissionRequestProps {
@@ -24,6 +26,42 @@ interface LocationPermissionRequestProps {
 export const LocationPermissionRequest: React.FC<LocationPermissionRequestProps> = ({
   onRequestLocation
 }) => {
+  const [permissionStatus, setPermissionStatus] = useState<Location.PermissionStatus | null>(null);
+  
+  // Check permission status on component mount
+  useEffect(() => {
+    checkPermissionStatus();
+  }, []);
+  
+  // Check current permission status
+  const checkPermissionStatus = async () => {
+    try {
+      const { status } = await Location.getForegroundPermissionsAsync();
+      setPermissionStatus(status);
+      
+      // If permission is already granted, call onRequestLocation
+      if (status === 'granted') {
+        onRequestLocation();
+      }
+    } catch (error) {
+      console.error('Error checking permission status:', error);
+    }
+  };
+  
+  // Request location permission
+  const requestPermission = async () => {
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      setPermissionStatus(status);
+      
+      if (status === 'granted') {
+        onRequestLocation();
+      }
+    } catch (error) {
+      console.error('Error requesting permission:', error);
+    }
+  };
+  
   // Open app settings
   const openSettings = () => {
     Linking.openSettings();
@@ -73,7 +111,7 @@ export const LocationPermissionRequest: React.FC<LocationPermissionRequestProps>
         <View style={styles.buttonsContainer}>
           <Button
             title="Allow Location Access"
-            onPress={onRequestLocation}
+            onPress={requestPermission}
             buttonStyle={styles.primaryButton}
             titleStyle={styles.buttonTitle}
             icon={{
@@ -87,6 +125,7 @@ export const LocationPermissionRequest: React.FC<LocationPermissionRequestProps>
             accessible={true}
             accessibilityLabel="Allow location access"
             accessibilityRole="button"
+            testID="allow-location-button"
           />
           
           <Button

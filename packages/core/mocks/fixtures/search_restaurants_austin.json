@@ -1,0 +1,561 @@
+{
+  "results": [
+    {
+      "fsq_id": "5e517d7bf2c03a00083e7e6e",
+      "categories": [
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13306,
+          "name": "Taco Restaurant",
+          "short_name": "Tacos",
+          "plural_name": "Taco Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/taco_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13377,
+          "name": "Vegan and Vegetarian Restaurant",
+          "short_name": "Vegan and Vegetarian Restaurant",
+          "plural_name": "Vegan and Vegetarian Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/vegetarian_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 82,
+      "geocodes": {
+        "main": {
+          "latitude": 30.267914,
+          "longitude": -97.743301
+        },
+        "roof": {
+          "latitude": 30.267914,
+          "longitude": -97.743301
+        }
+      },
+      "link": "/v3/places/5e517d7bf2c03a00083e7e6e",
+      "location": {
+        "address": "522 Congress Ave",
+        "address_extended": "Ste 100",
+        "census_block": "484530011022000",
+        "country": "US",
+        "cross_street": "at W 6th St",
+        "dma": "Austin",
+        "formatted_address": "522 Congress Ave (at W 6th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Velvet Taco",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "49bdd3adf964a5209f541fe3",
+      "categories": [
+        {
+          "id": 13002,
+          "name": "Bakery",
+          "short_name": "Bakery",
+          "plural_name": "Bakeries",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13034,
+          "name": "Café",
+          "short_name": "Café",
+          "plural_name": "Cafés",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 124,
+      "geocodes": {
+        "main": {
+          "latitude": 30.268041,
+          "longitude": -97.741624
+        },
+        "roof": {
+          "latitude": 30.268041,
+          "longitude": -97.741624
+        }
+      },
+      "link": "/v3/places/49bdd3adf964a5209f541fe3",
+      "location": {
+        "address": "604 Brazos St",
+        "census_block": "484530011011037",
+        "country": "US",
+        "cross_street": "at 6th St",
+        "dma": "Austin",
+        "formatted_address": "604 Brazos St (at 6th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "1886 Cafe & Bakery",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "5cafdc99ea1e44002b6144b7",
+      "categories": [
+        {
+          "id": 13303,
+          "name": "Mexican Restaurant",
+          "short_name": "Mexican",
+          "plural_name": "Mexican Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/mexican_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 112,
+      "geocodes": {
+        "main": {
+          "latitude": 30.267613,
+          "longitude": -97.744176
+        },
+        "roof": {
+          "latitude": 30.267613,
+          "longitude": -97.744176
+        }
+      },
+      "link": "/v3/places/5cafdc99ea1e44002b6144b7",
+      "location": {
+        "address": "501 Colorado St",
+        "census_block": "484530011022000",
+        "country": "US",
+        "cross_street": "W 5th St",
+        "dma": "Austin",
+        "formatted_address": "501 Colorado St (W 5th St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Comedor",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "55899f40498e71a37444c306",
+      "categories": [
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13031,
+          "name": "Burger Joint",
+          "short_name": "Burgers",
+          "plural_name": "Burger Joints",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 189,
+      "geocodes": {
+        "main": {
+          "latitude": 30.267851,
+          "longitude": -97.74124
+        },
+        "roof": {
+          "latitude": 30.267851,
+          "longitude": -97.74124
+        }
+      },
+      "link": "/v3/places/55899f40498e71a37444c306",
+      "location": {
+        "address": "200 E 6th St",
+        "census_block": "484530011011036",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "200 E 6th St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Eureka",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "56170c17498ecd6b0a1e7930",
+      "categories": [
+        {
+          "id": 13001,
+          "name": "Bagel Shop",
+          "short_name": "Bagels",
+          "plural_name": "Bagel Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bagels_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13145,
+          "name": "Fast Food Restaurant",
+          "short_name": "Fast Food",
+          "plural_name": "Fast Food Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13035,
+          "name": "Coffee Shop",
+          "short_name": "Coffee Shop",
+          "plural_name": "Coffee Shops",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 226,
+      "geocodes": {
+        "main": {
+          "latitude": 30.267866,
+          "longitude": -97.740823
+        },
+        "roof": {
+          "latitude": 30.267866,
+          "longitude": -97.740823
+        }
+      },
+      "link": "/v3/places/56170c17498ecd6b0a1e7930",
+      "location": {
+        "address": "212 E 6th St",
+        "census_block": "484530011011036",
+        "country": "US",
+        "cross_street": "at Brazos St",
+        "dma": "Austin",
+        "formatted_address": "212 E 6th St (at Brazos St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Voodoo Doughnut",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4aa06c38f964a520923f20e3",
+      "categories": [
+        {
+          "id": 13383,
+          "name": "Steakhouse",
+          "short_name": "Steakhouse",
+          "plural_name": "Steakhouses",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/steakhouse_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 247,
+      "geocodes": {
+        "main": {
+          "latitude": 30.269531,
+          "longitude": -97.743464
+        },
+        "roof": {
+          "latitude": 30.269531,
+          "longitude": -97.743464
+        }
+      },
+      "link": "/v3/places/4aa06c38f964a520923f20e3",
+      "location": {
+        "address": "114 W 7th St",
+        "address_extended": "Ste 110",
+        "census_block": "484530011012038",
+        "country": "US",
+        "cross_street": "at Colorado St",
+        "dma": "Austin",
+        "formatted_address": "114 W 7th St (at Colorado St), Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Perry's Steakhouse & Grille - Downtown Austin",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "574074c1498ec610c4e112d0",
+      "categories": [
+        {
+          "id": 13236,
+          "name": "Italian Restaurant",
+          "short_name": "Italian",
+          "plural_name": "Italian Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 253,
+      "geocodes": {
+        "main": {
+          "latitude": 30.265907,
+          "longitude": -97.744648
+        },
+        "roof": {
+          "latitude": 30.265907,
+          "longitude": -97.744648
+        }
+      },
+      "link": "/v3/places/574074c1498ec610c4e112d0",
+      "location": {
+        "address": "303 Colorado St",
+        "address_extended": "Ste 200",
+        "census_block": "484530011022006",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "303 Colorado St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Red Ash",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "4bb79325314e95219255479d",
+      "categories": [
+        {
+          "id": 13068,
+          "name": "American Restaurant",
+          "short_name": "American",
+          "plural_name": "American Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13095,
+          "name": "Cajun and Creole Restaurant",
+          "short_name": "Cajun / Creole",
+          "plural_name": "Cajun and Creole Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cajun_",
+            "suffix": ".png"
+          }
+        },
+        {
+          "id": 13338,
+          "name": "Seafood Restaurant",
+          "short_name": "Seafood",
+          "plural_name": "Seafood Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/seafood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "Unsure",
+      "distance": 253,
+      "geocodes": {
+        "main": {
+          "latitude": 30.267026,
+          "longitude": -97.74551
+        },
+        "roof": {
+          "latitude": 30.267026,
+          "longitude": -97.74551
+        }
+      },
+      "link": "/v3/places/4bb79325314e95219255479d",
+      "location": {
+        "address": "407 Lavaca St",
+        "census_block": "484530011022004",
+        "country": "US",
+        "dma": "Austin",
+        "formatted_address": "407 Lavaca St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Turf N Surf Po' Boy",
+      "related_places": {
+        "parent": {
+          "fsq_id": "4dae0f9a0c532e69bf0c4589",
+          "categories": [
+            {
+              "id": 13003,
+              "name": "Bar",
+              "short_name": "Bar",
+              "plural_name": "Bars",
+              "icon": {
+                "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+                "suffix": ".png"
+              }
+            }
+          ],
+          "name": "Lavaca Street Bar & Grill"
+        }
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "5676037b498e1b7d98c935c7",
+      "categories": [
+        {
+          "id": 13026,
+          "name": "BBQ Joint",
+          "short_name": "BBQ",
+          "plural_name": "BBQ Joints",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bbqalt_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [],
+      "closed_bucket": "LikelyOpen",
+      "distance": 255,
+      "geocodes": {
+        "main": {
+          "latitude": 30.264949,
+          "longitude": -97.743692
+        },
+        "roof": {
+          "latitude": 30.264949,
+          "longitude": -97.743692
+        }
+      },
+      "link": "/v3/places/5676037b498e1b7d98c935c7",
+      "location": {
+        "address": "217 Congress Ave",
+        "census_block": "484530011032020",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "217 Congress Ave, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Cooper's Old Time Pit Bar-B-Que",
+      "related_places": {
+        "children": []
+      },
+      "timezone": "America/Chicago"
+    },
+    {
+      "fsq_id": "45730176f964a520833e1fe3",
+      "categories": [
+        {
+          "id": 13338,
+          "name": "Seafood Restaurant",
+          "short_name": "Seafood",
+          "plural_name": "Seafood Restaurants",
+          "icon": {
+            "prefix": "https://ss3.4sqi.net/img/categories_v2/food/seafood_",
+            "suffix": ".png"
+          }
+        }
+      ],
+      "chains": [
+        {
+          "id": "e345e2ad-59e3-4ddc-9bf6-64f07134dcf8",
+          "name": "Eddie V's Prime Seafood"
+        }
+      ],
+      "closed_bucket": "VeryLikelyOpen",
+      "distance": 266,
+      "geocodes": {
+        "main": {
+          "latitude": 30.266114,
+          "longitude": -97.740681
+        },
+        "roof": {
+          "latitude": 30.266114,
+          "longitude": -97.740681
+        }
+      },
+      "link": "/v3/places/45730176f964a520833e1fe3",
+      "location": {
+        "address": "301 E 5th St",
+        "census_block": "484530011032010",
+        "country": "US",
+        "cross_street": "",
+        "dma": "Austin",
+        "formatted_address": "301 E 5th St, Austin, TX 78701",
+        "locality": "Austin",
+        "postcode": "78701",
+        "region": "TX"
+      },
+      "name": "Eddie V's Prime Seafood",
+      "related_places": {},
+      "timezone": "America/Chicago"
+    }
+  ],
+  "context": {
+    "geo_bounds": {
+      "circle": {
+        "center": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        },
+        "radius": 1000
+      }
+    }
+  }
+}

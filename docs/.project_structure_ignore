@@ -8,3 +8,4 @@ yarn.lock
 yarn.\*
 assets
 .DS_Store
+babel.config.js

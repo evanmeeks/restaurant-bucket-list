@@ -1,0 +1,715 @@
+{
+    "results": [
+        {
+            "fsq_id": "49dce73af964a520bb5f1fe3",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13314,
+                    "name": "New American Restaurant",
+                    "short_name": "New American",
+                    "plural_name": "New American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "LikelyOpen",
+            "distance": 392,
+            "geocodes": {
+                "drop_off": {
+                    "latitude": 41.875165,
+                    "longitude": -87.627621
+                },
+                "main": {
+                    "latitude": 41.875174,
+                    "longitude": -87.627359
+                },
+                "roof": {
+                    "latitude": 41.875174,
+                    "longitude": -87.627359
+                }
+            },
+            "link": "/v3/places/49dce73af964a520bb5f1fe3",
+            "location": {
+                "address": "517 S State St",
+                "address_extended": "# 1616",
+                "census_block": "170313204001035",
+                "country": "US",
+                "cross_street": "btwn E Congress Pkwy & E Harrison St",
+                "dma": "Chicago",
+                "formatted_address": "517 S State St (btwn E Congress Pkwy & E Harrison St), Chicago, IL 60605",
+                "locality": "Chicago",
+                "postcode": "60605",
+                "region": "IL"
+            },
+            "name": "Epic Burger",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "556509d6498e726bdec19fe9",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "short_name": "American",
+                    "plural_name": "American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [
+                {
+                    "id": "77b71837-2819-4b77-ab68-432d34f58531",
+                    "name": "Shake Shack"
+                }
+            ],
+            "closed_bucket": "LikelyOpen",
+            "distance": 594,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.881669,
+                    "longitude": -87.624934
+                },
+                "roof": {
+                    "latitude": 41.881669,
+                    "longitude": -87.624934
+                }
+            },
+            "link": "/v3/places/556509d6498e726bdec19fe9",
+            "location": {
+                "address": "12 S Michigan Ave",
+                "census_block": "170313204001009",
+                "country": "US",
+                "cross_street": "btwn E Madison & E Monroe St",
+                "dma": "Chicago",
+                "formatted_address": "12 S Michigan Ave (btwn E Madison & E Monroe St), Chicago, IL 60603",
+                "locality": "Chicago",
+                "postcode": "60603",
+                "region": "IL"
+            },
+            "name": "Shake Shack",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "513c5272e4b04d69084816ff",
+                    "categories": [
+                        {
+                            "id": 19014,
+                            "name": "Hotel",
+                            "short_name": "Hotel",
+                            "plural_name": "Hotels",
+                            "icon": {
+                                "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/hotel_",
+                                "suffix": ".png"
+                            }
+                        }
+                    ],
+                    "name": "Chicago Athletic Association Hotel"
+                }
+            },
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "4ff0b49ee889a55ec8251e82",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "short_name": "American",
+                    "plural_name": "American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [
+                {
+                    "id": "16d760e0-992b-0132-fd75-7a163eb2a6fc",
+                    "name": "Five Guys Burgers & Fries"
+                }
+            ],
+            "closed_bucket": "VeryLikelyOpen",
+            "distance": 1181,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.86783,
+                    "longitude": -87.626106
+                },
+                "roof": {
+                    "latitude": 41.86783,
+                    "longitude": -87.626106
+                }
+            },
+            "link": "/v3/places/4ff0b49ee889a55ec8251e82",
+            "location": {
+                "address": "1146 S Wabash Ave",
+                "census_block": "170313206001010",
+                "country": "US",
+                "cross_street": "",
+                "dma": "Chicago",
+                "formatted_address": "1146 S Wabash Ave, Chicago, IL 60605",
+                "locality": "Chicago",
+                "postcode": "60605",
+                "region": "IL"
+            },
+            "name": "Five Guys",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "59ee3691356b491e4341b14d",
+            "categories": [
+                {
+                    "id": 13009,
+                    "name": "Cocktail Bar",
+                    "short_name": "Cocktail",
+                    "plural_name": "Cocktail Bars",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "Unsure",
+            "distance": 1034,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.885024,
+                    "longitude": -87.638457
+                },
+                "roof": {
+                    "latitude": 41.885024,
+                    "longitude": -87.638457
+                }
+            },
+            "link": "/v3/places/59ee3691356b491e4341b14d",
+            "location": {
+                "address": "150 N Riverside Plz",
+                "census_block": "170312801001001",
+                "country": "US",
+                "cross_street": "Randolph Street",
+                "dma": "Chicago",
+                "formatted_address": "150 N Riverside Plz (Randolph Street), Chicago, IL 60606",
+                "locality": "Chicago",
+                "postcode": "60606",
+                "region": "IL"
+            },
+            "name": "Hogsalt - Small C",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "5717d696498eb942c4b4d8cd",
+                    "categories": [
+                        {
+                            "id": 11130,
+                            "name": "Office Building",
+                            "short_name": "Office Building",
+                            "plural_name": "Office Buildings",
+                            "icon": {
+                                "prefix": "https://ss3.4sqi.net/img/categories_v2/building/default_",
+                                "suffix": ".png"
+                            }
+                        }
+                    ],
+                    "name": "150 N Riverside Plaza"
+                }
+            },
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "40b28c80f964a52045fb1ee3",
+            "categories": [
+                {
+                    "id": 13009,
+                    "name": "Cocktail Bar",
+                    "short_name": "Cocktail",
+                    "plural_name": "Cocktail Bars",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13018,
+                    "name": "Pub",
+                    "short_name": "Pub",
+                    "plural_name": "Pubs",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "LikelyOpen",
+            "distance": 918,
+            "geocodes": {
+                "drop_off": {
+                    "latitude": 41.885731,
+                    "longitude": -87.634396
+                },
+                "main": {
+                    "latitude": 41.885457,
+                    "longitude": -87.634397
+                },
+                "roof": {
+                    "latitude": 41.885457,
+                    "longitude": -87.634397
+                }
+            },
+            "link": "/v3/places/40b28c80f964a52045fb1ee3",
+            "location": {
+                "address": "205 W Lake St",
+                "census_block": "170318391001033",
+                "country": "US",
+                "cross_street": "at Wells St",
+                "dma": "Chicago",
+                "formatted_address": "205 W Lake St (at Wells St), Chicago, IL 60606",
+                "locality": "Chicago",
+                "postcode": "60606",
+                "region": "IL"
+            },
+            "name": "Monk's Pub",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "616b1f42e584526ddb17c1ad",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13064,
+                    "name": "Pizzeria",
+                    "short_name": "Pizza",
+                    "plural_name": "Pizzerias",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "VeryLikelyOpen",
+            "distance": 304,
+            "geocodes": {
+                "drop_off": {
+                    "latitude": 41.879513,
+                    "longitude": -87.626865
+                },
+                "main": {
+                    "latitude": 41.879765,
+                    "longitude": -87.626871
+                },
+                "roof": {
+                    "latitude": 41.879765,
+                    "longitude": -87.626871
+                }
+            },
+            "link": "/v3/places/616b1f42e584526ddb17c1ad",
+            "location": {
+                "address": "20 E Adams St",
+                "census_block": "170313204001011",
+                "country": "US",
+                "cross_street": "State",
+                "dma": "Chicago",
+                "formatted_address": "20 E Adams St (State), Chicago, IL 60603",
+                "locality": "Chicago",
+                "postcode": "60603",
+                "region": "IL"
+            },
+            "name": "Jimmy's Gyros & Grill",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "5da5fbd4e7820f00085855f8",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "short_name": "American",
+                    "plural_name": "American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [
+                {
+                    "id": "77b71837-2819-4b77-ab68-432d34f58531",
+                    "name": "Shake Shack"
+                }
+            ],
+            "closed_bucket": "LikelyOpen",
+            "distance": 472,
+            "geocodes": {
+                "drop_off": {
+                    "latitude": 41.878094,
+                    "longitude": -87.635878
+                },
+                "main": {
+                    "latitude": 41.87832,
+                    "longitude": -87.635881
+                },
+                "roof": {
+                    "latitude": 41.87832,
+                    "longitude": -87.635881
+                }
+            },
+            "link": "/v3/places/5da5fbd4e7820f00085855f8",
+            "location": {
+                "address": "316 W Jackson Blvd",
+                "address_extended": "Ste L1-20",
+                "census_block": "170318391002008",
+                "country": "US",
+                "cross_street": "Franklin",
+                "dma": "Chicago",
+                "formatted_address": "316 W Jackson Blvd (Franklin), Chicago, IL 60606",
+                "locality": "Chicago",
+                "postcode": "60606",
+                "region": "IL"
+            },
+            "name": "Shake Shack",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "4a61162ff964a520d0c11fe3",
+                    "categories": [
+                        {
+                            "id": 16026,
+                            "name": "Monument",
+                            "short_name": "Monument",
+                            "plural_name": "Monuments",
+                            "icon": {
+                                "prefix": "https://ss3.4sqi.net/img/categories_v2/building/government_monument_",
+                                "suffix": ".png"
+                            }
+                        }
+                    ],
+                    "name": "Willis Tower"
+                }
+            },
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "49e749fbf964a52086641fe3",
+            "categories": [
+                {
+                    "id": 13009,
+                    "name": "Cocktail Bar",
+                    "short_name": "Cocktail",
+                    "plural_name": "Cocktail Bars",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/cocktails_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13057,
+                    "name": "Gastropub",
+                    "short_name": "Gastropub",
+                    "plural_name": "Gastropubs",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/gastropub_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13314,
+                    "name": "New American Restaurant",
+                    "short_name": "New American",
+                    "plural_name": "New American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "VeryLikelyOpen",
+            "distance": 558,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.881477,
+                    "longitude": -87.624954
+                },
+                "roof": {
+                    "latitude": 41.881457,
+                    "longitude": -87.624863
+                }
+            },
+            "link": "/v3/places/49e749fbf964a52086641fe3",
+            "location": {
+                "address": "24 S Michigan Ave",
+                "census_block": "170313204001009",
+                "country": "US",
+                "cross_street": "btwn Monroe & Madison St.",
+                "dma": "Chicago",
+                "formatted_address": "24 S Michigan Ave (btwn Monroe & Madison St.), Chicago, IL 60603",
+                "locality": "Chicago",
+                "postcode": "60603",
+                "region": "IL"
+            },
+            "name": "The Gage",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "49d8159cf964a520a05d1fe3",
+            "categories": [
+                {
+                    "id": 13018,
+                    "name": "Pub",
+                    "short_name": "Pub",
+                    "plural_name": "Pubs",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "short_name": "American",
+                    "plural_name": "American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "closed_bucket": "Unsure",
+            "distance": 369,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.880292,
+                    "longitude": -87.626325
+                },
+                "roof": {
+                    "latitude": 41.880292,
+                    "longitude": -87.626325
+                }
+            },
+            "link": "/v3/places/49d8159cf964a520a05d1fe3",
+            "location": {
+                "address": "134 S Wabash Ave",
+                "address_extended": "# 5660",
+                "census_block": "170313204001011",
+                "country": "US",
+                "cross_street": "btwn E Adams & E Monroe St",
+                "dma": "Chicago",
+                "formatted_address": "134 S Wabash Ave (btwn E Adams & E Monroe St), Chicago, IL 60603",
+                "locality": "Chicago",
+                "postcode": "60603",
+                "region": "IL"
+            },
+            "name": "Miller's Pub",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        },
+        {
+            "fsq_id": "5b7d9742dee770002cad2c11",
+            "categories": [
+                {
+                    "id": 13031,
+                    "name": "Burger Joint",
+                    "short_name": "Burgers",
+                    "plural_name": "Burger Joints",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13068,
+                    "name": "American Restaurant",
+                    "short_name": "American",
+                    "plural_name": "American Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13145,
+                    "name": "Fast Food Restaurant",
+                    "short_name": "Fast Food",
+                    "plural_name": "Fast Food Restaurants",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [
+                {
+                    "id": "16d760e0-992b-0132-fd75-7a163eb2a6fc",
+                    "name": "Five Guys Burgers & Fries"
+                }
+            ],
+            "closed_bucket": "VeryLikelyOpen",
+            "distance": 925,
+            "geocodes": {
+                "main": {
+                    "latitude": 41.88558,
+                    "longitude": -87.624895
+                },
+                "roof": {
+                    "latitude": 41.88558,
+                    "longitude": -87.624895
+                }
+            },
+            "link": "/v3/places/5b7d9742dee770002cad2c11",
+            "location": {
+                "address": "180 N Michigan Ave",
+                "census_block": "170313201021024",
+                "country": "US",
+                "cross_street": "Lake",
+                "dma": "Chicago",
+                "formatted_address": "180 N Michigan Ave (Lake), Chicago, IL 60601",
+                "locality": "Chicago",
+                "postcode": "60601",
+                "region": "IL"
+            },
+            "name": "Five Guys",
+            "related_places": {},
+            "timezone": "America/Chicago"
+        }
+    ],
+    "context": {
+        "geo_bounds": {
+            "circle": {
+                "center": {
+                    "latitude": 41.8781,
+                    "longitude": -87.6298
+                },
+                "radius": 600
+            }
+        }
+    }
+}
