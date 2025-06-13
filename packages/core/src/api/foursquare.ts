@@ -1,12 +1,17 @@
 import Foursquare from '@foursquare/foursquare-places';
+import {
+  FOURSQUARE_CLIENT_ID,
+  FOURSQUARE_CLIENT_SECRET
+} from 'react-native-dotenv';
 
-import { FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET, FOURSQUARE_API_KEY } from '../utils/env';
+
+
 
 import {
+  Coordinates,
+  VenueDetailsResponse,
   VenueSearchParams,
   VenueSearchResponse,
-  VenueDetailsResponse,
-  Coordinates,
 } from '../models/venue';
 
 // alert(JSON.stringify(process.env));
