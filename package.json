@@ -23,8 +23,8 @@
     "clean": "yarn workspaces run clean",
     "web:start": "yarn workspace web start",
     "mobile:start": "yarn workspace mobile start",
-    "ios": "expo run:ios",
-    "android": "expo run:android",
+    "ios": "cd packages/mobile && expo run:ios",
+    "android": "cd packages/mobile && expo run:android",
     "ios:pod-install": "cd packages/mobile/ios && pod deintegrate && pod install --repo-update",
     "fix-pods": "cd packages/mobile/ios && rm -rf Pods Podfile.lock && pod deintegrate && pod install --repo-update"
   },
