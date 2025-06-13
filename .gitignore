@@ -1,13 +1,36 @@
-out
-dist
+# Ignore node modules
 node_modules
-.vscode-test/
+
+# Ignore build artifacts
 *.vsix
 bun.lockb
 package.json
-.env*
 .expo
 .DS_Store
 .vscode
+
+# Ignore production dependencies
+build
+out
+dist
+
+# Ignore test files
+coverage
+
+# Ignore system files
+.env*
 env.ts
 docs
+
+# Ignore Expo files
+ios/Pods/
+ios/build/
+*.xcuserstate
+*.xcuserdata
+*.xcuserstate
+*.xcuserdata
+
+Manifest.lock
+ios/.xcode.env.local
+ios/restaurantbucketlist.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+ios/restaurantbucketlist.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist

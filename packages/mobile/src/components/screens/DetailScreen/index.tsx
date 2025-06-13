@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from '../../../navigation/types';
 import { useDispatch } from 'react-redux';
-import { addToBucketList } from 'core/src/store/slices/bucketListSlice';
+import { addToBucketList, fetchBucketList } from 'core/src/store/slices/bucketListSlice';
 import { useAppSelector } from 'core/src/store';
 import { defaultRestaurantImg } from '../../../assets/default_88.png';
 // Get screen dimensions
@@ -35,9 +35,16 @@ export const DetailScreen: React.FC = () => {
   // Make sure itemData exists before using it
   const venue = route.params?.itemData;
 
+  // Fetch bucket list to make sure it's up to date
+  useEffect(() => {
+    dispatch(fetchBucketList());
+  }, [dispatch]);
+
   // Get saved venues to check if this one is already saved
   const savedVenues = useAppSelector(state => state.bucketList.items);
-  const isVenueSaved = venue ? savedVenues.some(item => item.id === venue.id) : false;
+  const isVenueSaved = venue ? savedVenues.some(item => 
+    item.venueId === venue.fsq_id || item.venue.id === venue.id
+  ) : false;
 
   // Fallback for when no venue data is passed
   if (!venue) {
@@ -75,9 +82,20 @@ export const DetailScreen: React.FC = () => {
 
   // Handle saving venue to bucket list
   const handleSaveVenue = () => {
+    console.log('Save button pressed, venue:', venue);
+    
     if (!isVenueSaved) {
-      dispatch(addToBucketList(venue));
+      // Make sure the venue has an fsq_id for compatibility
+      const venueToSave = venue.fsq_id ? venue : { ...venue, fsq_id: venue.id };
+      console.log('Dispatching addToBucketList with:', venueToSave);
+      
+      dispatch(addToBucketList(venueToSave));
       Alert.alert('Saved', `${venueName} has been added to your bucket list!`);
+      
+      // Refresh the bucket list after saving
+      setTimeout(() => {
+        dispatch(fetchBucketList());
+      }, 500);
     } else {
       Alert.alert('Already Saved', `${venueName} is already in your bucket list.`);
     }
@@ -138,7 +156,6 @@ export const DetailScreen: React.FC = () => {
             defaultSource={defaultRestaurantImg}
           />
           <View style={styles.categoryBadge}>
-            <Text style={styles.categoryText}>{iconUrl}</Text>
             <Text style={styles.categoryText}>{venueCategory}</Text>
           </View>
         </View>

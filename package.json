@@ -2,12 +2,14 @@
   "name": "restaurant-bucket-list",
   "version": "1.0.0",
   "description": "Shared business logic and models for Restaurant Bucket List app",
-  "main": "src/index.ts",
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "@foursquare/foursquare-places": "^1.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "expo": "~50.0.17",
+    "react-native": "0.73.6"
   },
   "license": "MIT",
   "workspaces": [
@@ -21,8 +23,8 @@
     "clean": "yarn workspaces run clean",
     "web:start": "yarn workspace web start",
     "mobile:start": "yarn workspace mobile start",
-    "ios": "yarn workspace mobile ios",
-    "android": "yarn workspace mobile android",
+    "ios": "expo run:ios",
+    "android": "expo run:android",
     "ios:pod-install": "cd packages/mobile/ios && pod deintegrate && pod install --repo-update",
     "fix-pods": "cd packages/mobile/ios && rm -rf Pods Podfile.lock && pod deintegrate && pod install --repo-update"
   },

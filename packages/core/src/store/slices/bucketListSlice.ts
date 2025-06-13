@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BucketListState, BucketListItem, BucketListFilter } from '../../models/bucket-list';
 
+// Initial state for the bucket list
 const initialState: BucketListState = {
   items: [],
   filteredItems: [],
@@ -9,6 +10,10 @@ const initialState: BucketListState = {
   error: null,
 };
 
+/**
+ * Bucket List Slice
+ * Manages bucket list items, filtering, and loading states
+ */
 const bucketListSlice = createSlice({
   name: 'bucketList',
   initialState,
@@ -30,62 +35,54 @@ const bucketListSlice = createSlice({
     
     // Add to bucket list actions
     addToBucketList: (state, action: PayloadAction<any>) => {
-      // Create a bucket list item from the venue
-      const venue = action.payload;
-      const now = Date.now();
-      
-      const newItem: BucketListItem = {
-        id: venue.fsq_id, // Use the Foursquare venue ID as the item ID
-        venue: {
-          id: venue.fsq_id,
-          name: venue.name,
-          category: venue.categories && venue.categories.length > 0 
-            ? venue.categories[0].name 
-            : 'Restaurant',
-          address: venue.location ? 
-            venue.location.formatted_address || 
-            [venue.location.address, venue.location.locality, venue.location.region]
-              .filter(Boolean).join(', ') 
-            : '',
-          coordinates: venue.geocodes?.main ? {
-            latitude: venue.geocodes.main.latitude,
-            longitude: venue.geocodes.main.longitude
-          } : undefined,
-          photo: venue.photos && venue.photos.length > 0 
-            ? `${venue.photos[0].prefix}original${venue.photos[0].suffix}` 
-            : undefined,
-          rating: venue.rating,
-        },
-        addedAt: now,
-        notes: '',
-        tags: [],
-        priority: 'medium',
-      };
-      
-      // Add to items array if not already there
-      if (!state.items.some(item => item.id === newItem.id)) {
-        state.items.push(newItem);
+      state.loading = true;
+      state.error = null;
+    },
+    addToBucketListSuccess: (state, action: PayloadAction<BucketListItem>) => {
+      // Only add if not already in the list
+      if (!state.items.some(item => item.id === action.payload.id)) {
+        state.items.push(action.payload);
         state.filteredItems = applyFilters(state.items, state.filters);
       }
+      state.loading = false;
+    },
+    addToBucketListFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
     
-    // Update bucket list item actions
-    updateBucketListItem: (state, action: PayloadAction<{
-      id: string;
-      updates: Partial<BucketListItem>;
-    }>) => {
-      const { id, updates } = action.payload;
-      const index = state.items.findIndex(item => item.id === id);
+    // Update bucket list item actions 
+    updateBucketListItem: (state, action: PayloadAction<BucketListItem>) => {
+      state.loading = true;
+      state.error = null;
+    },
+    updateBucketListItemSuccess: (state, action: PayloadAction<BucketListItem>) => {
+      const updatedItem = action.payload;
+      const index = state.items.findIndex(item => item.id === updatedItem.id);
       if (index !== -1) {
-        state.items[index] = { ...state.items[index], ...updates };
+        state.items[index] = updatedItem;
         state.filteredItems = applyFilters(state.items, state.filters);
       }
+      state.loading = false;
+    },
+    updateBucketListItemFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
     
     // Remove from bucket list actions
     removeFromBucketList: (state, action: PayloadAction<string>) => {
+      state.loading = true;
+      state.error = null;
+    },
+    removeFromBucketListSuccess: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter(item => item.id !== action.payload);
       state.filteredItems = applyFilters(state.items, state.filters);
+      state.loading = false;
+    },
+    removeFromBucketListFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
     
     // Mark as visited actions
@@ -94,18 +91,21 @@ const bucketListSlice = createSlice({
       rating?: number;
       review?: string;
     }>) => {
-      const { id, rating, review } = action.payload;
-      const index = state.items.findIndex(item => item.id === id);
-      
+      state.loading = true;
+      state.error = null;
+    },
+    markAsVisitedSuccess: (state, action: PayloadAction<BucketListItem>) => {
+      const updatedItem = action.payload;
+      const index = state.items.findIndex(item => item.id === updatedItem.id);
       if (index !== -1) {
-        state.items[index] = {
-          ...state.items[index],
-          visitedAt: Date.now(),
-          userRating: rating,
-          review,
-        };
+        state.items[index] = updatedItem;
         state.filteredItems = applyFilters(state.items, state.filters);
       }
+      state.loading = false;
+    },
+    markAsVisitedFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
     
     // Filter actions
@@ -120,7 +120,9 @@ const bucketListSlice = createSlice({
   },
 });
 
-// Helper function to apply filters
+/**
+ * Helper function to apply filters to bucket list items
+ */
 const applyFilters = (items: BucketListItem[], filters: BucketListFilter): BucketListItem[] => {
   let result = [...items];
   
@@ -189,15 +191,23 @@ const applyFilters = (items: BucketListItem[], filters: BucketListFilter): Bucke
   return result;
 };
 
-// Export actions
+// Export all actions
 export const {
   fetchBucketList,
   fetchBucketListSuccess,
   fetchBucketListFailure,
   addToBucketList,
+  addToBucketListSuccess,
+  addToBucketListFailure,
   updateBucketListItem,
+  updateBucketListItemSuccess,
+  updateBucketListItemFailure,
   removeFromBucketList,
+  removeFromBucketListSuccess,
+  removeFromBucketListFailure,
   markAsVisited,
+  markAsVisitedSuccess,
+  markAsVisitedFailure,
   setFilters,
   clearFilters,
 } = bucketListSlice.actions;

@@ -7,7 +7,6 @@ import { RouteProp } from '@react-navigation/native';
 export type RootStackParamList = {
   Main: undefined;
   Detail: { itemData: any };
-  BucketListItemEdit: { itemId: string };
 };
 
 // Define bottom tab param list
@@ -18,9 +17,6 @@ export type MainTabParamList = {
   Profile: undefined;
   APITest: undefined;
 };
-
-// Add or verify this export in the file
-export type BucketListItemEditRouteProp = RouteProp<RootStackParamList, 'BucketListItemEdit'>;
 
 // Define combined navigation types
 export type ExploreNavigationProp = CompositeNavigationProp<

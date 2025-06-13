@@ -6,17 +6,30 @@ import {
   logout,
   logoutSuccess,
   logoutFailure,
+  resetToMockUser
 } from '../slices/authSlice';
+import { UserProfile } from '../../models/app-state';
+
+// Default mock user for development
+const MOCK_USER: UserProfile = {
+  id: 'mock-user-1',
+  email: 'test@example.com',
+  displayName: 'Test User',
+};
 
 // Example login service (replace with your actual auth service, e.g., Firebase)
 const loginService = async (email: string, password: string) => {
+  // For development, always return the mock user
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Development mode: Using mock user for login');
+    return MOCK_USER;
+  }
+  
   // Simulate an API call (replace with actual Firebase/auth logic)
   return {
     id: 'example',
     email,
     displayName: email.split('@')[0],
-    createdAt: Date.now(),
-    lastLogin: Date.now(),
   };
 };
 
@@ -42,24 +55,28 @@ function* handleLogin(action: ReturnType<typeof login>) {
 function* handleLogout() {
   try {
     yield call(logoutService);
-    yield put(logoutSuccess());
+    
+    // For development, we'll "log out" to the mock user
+    if (process.env.NODE_ENV !== 'production') {
+      yield put(resetToMockUser());
+    } else {
+      yield put(logoutSuccess());
+    }
   } catch (error: any) {
     yield put(logoutFailure(error.message || 'Logout failed'));
   }
 }
 
+// Special handler to reset to mock user
+function* handleResetToMockUser() {
+  // This is just a passthrough action - the reducer handles the actual state change
+  console.log('Resetting to mock user');
+}
+
 export function* watchAuth() {
-  // Log the action creators to debug
-  console.log('watchAuth: login action creator:', login);
-  console.log('watchAuth: logout action creator:', logout);
-
-  // Ensure actions are defined
-  if (!login || !logout) {
-    throw new Error('Auth action creators are undefined');
-  }
-
   yield takeLatest(login.type, handleLogin);
   yield takeLatest(logout.type, handleLogout);
+  yield takeLatest(resetToMockUser.type, handleResetToMockUser);
 }
 
 export default function* authSaga() {

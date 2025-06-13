@@ -1,5 +1,6 @@
 import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
   fetchBucketList,
   fetchBucketListSuccess,
@@ -23,25 +24,44 @@ import { RootState } from '../index';
 import { Venue } from '../../models/venue';
 import { foursquareService } from '../../api/foursquare';
 
-// Helper function to get user ID from state
-const getUserId = (state: RootState) => state.auth.user?.id;
+/**
+ * BucketList Saga
+ * Handles async operations for the bucket list feature
+ */
 
-// Handle fetch bucket list
+// Default mock user ID for development
+const MOCK_USER_ID = 'mock-user-1';
+
+// Helper function to get user ID from state, with fallback to mock user
+const getUserId = (state: RootState) => {
+  const userId = state.auth.user?.id;
+  // Always use mock user ID during development
+  if (!userId) {
+    console.warn('No authenticated user found. Using mock user.');
+    return MOCK_USER_ID;
+  }
+  return userId;
+};
+
+/**
+ * Handle fetch bucket list
+ * Fetches the user's bucket list from the backend/Firebase
+ */
 function* handleFetchBucketList() {
   try {
+    console.log('Fetching bucket list...');
     const userId = yield select(getUserId);
-    
-    if (!userId) {
-      throw new Error('User not authenticated');
-    }
+    console.log('Current user ID:', userId);
     
     // Call API to get user's bucket list
     // In a real app, this would be a call to your backend API
     // or a service like Firebase
-    const items = yield call(fetchBucketListFromFirebase, userId);
+    const items = yield call(fetchBucketListFromStorage, userId);
+    console.log('Fetched items from storage:', items);
     
     // Enhance items with venue details if needed
     const enhancedItems = yield call(enhanceBucketListWithVenueDetails, items);
+    console.log('Enhanced items with venue details:', enhancedItems);
     
     // Handle success
     yield put(fetchBucketListSuccess(enhancedItems));
@@ -51,14 +71,22 @@ function* handleFetchBucketList() {
   }
 }
 
-// Mock function to fetch bucket list from Firebase or backend
-// This would be replaced with actual Firebase calls
-function fetchBucketListFromFirebase(userId: string): Promise<BucketListItem[]> {
-  // In a real implementation, this would be:
-  // return firebaseService.getBucketList(userId);
+// Mock function to fetch bucket list from AsyncStorage
+async function fetchBucketListFromStorage(userId: string): Promise<BucketListItem[]> {
+  try {
+    console.log(`Fetching items from AsyncStorage for user ${userId}`);
+    // Get items from AsyncStorage
+    const storedItems = await AsyncStorage.getItem(`bucketList_${userId}`);
+    console.log('Raw stored items:', storedItems);
+    if (storedItems) {
+      return JSON.parse(storedItems);
+    }
+  } catch (error) {
+    console.error('Error reading from AsyncStorage:', error);
+  }
   
-  // For now, return mock data
-  return Promise.resolve([]);
+  // Return empty array if nothing found or error
+  return [];
 }
 
 // Helper function to enhance bucket list items with venue details
@@ -92,171 +120,208 @@ function* enhanceBucketListWithVenueDetails(items: BucketListItem[]): Generator<
   return enhancedItems;
 }
 
-// Handle add to bucket list
-function* handleAddToBucketList(action: PayloadAction<{
-  venueId: string;
-  notes?: string;
-  tags?: string[];
-  priority?: 'low' | 'medium' | 'high';
-}>) {
+/**
+ * Handle add to bucket list
+ * Adds a venue to the user's bucket list
+ */
+function* handleAddToBucketList(action: PayloadAction<any>) {
   try {
+    console.log('Adding to bucket list, payload:', action.payload);
     const userId = yield select(getUserId);
+    console.log('Current user ID:', userId);
     
-    if (!userId) {
-      throw new Error('User not authenticated');
-    }
-    
-    const { venueId, notes, tags, priority } = action.payload;
-    
-    // Get venue details if not already in state
-    let venue: Venue;
-    const state: RootState = yield select();
-    
-    // Check if venue is in state
-    const venueInState = 
-      state.venues.nearby.venues.find(v => v.id === venueId) ||
-      state.venues.recommended.venues.find(v => v.id === venueId) ||
-      state.venues.search.venues.find(v => v.id === venueId) ||
-      (state.venues.selectedVenue?.id === venueId ? state.venues.selectedVenue : undefined);
-      
-    if (venueInState) {
-      venue = venueInState;
-    } else {
-      // Fetch venue details from API
-      const response = yield call(
-        foursquareService.getVenueDetails.bind(foursquareService),
-        venueId
-      );
-      venue = response.venue;
-      
-      // Also update selected venue in state
-      yield put(selectVenue(venueId));
-    }
+    // Get the venue data from the action payload
+    const venue = action.payload;
     
     // Create bucket list item
     const newItem: BucketListItem = {
-      id: `${userId}_${venueId}_${Date.now()}`, // Generate a unique ID
-      venueId,
-      venue,
+      id: `${userId}_${venue.fsq_id}_${Date.now()}`, // Generate a unique ID
+      venueId: venue.fsq_id,
       userId,
-      notes,
-      tags,
-      priority,
-      addedAt: Date.now()
+      venue: {
+        id: venue.fsq_id,
+        name: venue.name,
+        category: venue.categories && venue.categories.length > 0 
+          ? venue.categories[0].name 
+          : 'Restaurant',
+        address: venue.location ? 
+          venue.location.formatted_address || 
+          [venue.location.address, venue.location.locality, venue.location.region]
+            .filter(Boolean).join(', ') 
+          : '',
+        coordinates: venue.geocodes?.main ? {
+          latitude: venue.geocodes.main.latitude,
+          longitude: venue.geocodes.main.longitude
+        } : undefined,
+        photo: venue.photos && venue.photos.length > 0 
+          ? `${venue.photos[0].prefix}original${venue.photos[0].suffix}` 
+          : undefined,
+        rating: venue.rating,
+      },
+      addedAt: Date.now(),
+      notes: '',
+      tags: [],
+      priority: 'medium',
     };
     
-    // Save to Firebase or backend
-    yield call(saveBucketListItemToFirebase, newItem);
+    console.log('Created new bucket list item:', newItem);
+    
+    // Save to AsyncStorage
+    yield call(saveBucketListItemToStorage, newItem);
     
     // Handle success
     yield put(addToBucketListSuccess(newItem));
+    console.log('Add to bucket list success action dispatched');
   } catch (error) {
     console.error('Failed to add to bucket list:', error);
     yield put(addToBucketListFailure(error.message || 'Failed to add to bucket list'));
   }
 }
 
-// Mock function to save bucket list item to Firebase or backend
-function saveBucketListItemToFirebase(item: BucketListItem): Promise<void> {
-  // In a real implementation, this would be:
-  // return firebaseService.saveBucketListItem(item);
-  
-  // For now, just return a resolved promise
-  return Promise.resolve();
+// Function to save bucket list item to AsyncStorage
+async function saveBucketListItemToStorage(item: BucketListItem): Promise<void> {
+  try {
+    console.log(`Saving item to AsyncStorage for user ${item.userId}`);
+    // Get existing items
+    const storedItems = await AsyncStorage.getItem(`bucketList_${item.userId}`);
+    let items = storedItems ? JSON.parse(storedItems) : [];
+    console.log('Existing items:', items);
+    
+    // Add new item if it doesn't exist already
+    if (!items.some(existingItem => existingItem.id === item.id)) {
+      items.push(item);
+      console.log('Added new item to items list');
+    } else {
+      console.log('Item already exists, not adding');
+    }
+    
+    // Save back to AsyncStorage
+    const itemsJson = JSON.stringify(items);
+    console.log('Saving items to AsyncStorage:', itemsJson);
+    await AsyncStorage.setItem(`bucketList_${item.userId}`, itemsJson);
+    console.log('Successfully saved to AsyncStorage');
+  } catch (error) {
+    console.error('Error saving to AsyncStorage:', error);
+  }
 }
 
-// Handle update bucket list item
-function* handleUpdateBucketListItem(action: PayloadAction<{
-  id: string;
-  updates: Partial<BucketListItem>;
-}>) {
+/**
+ * Handle update bucket list item
+ * Updates an existing bucket list item
+ */
+function* handleUpdateBucketListItem(action: PayloadAction<BucketListItem>) {
   try {
+    console.log('Updating bucket list item:', action.payload);
     const userId = yield select(getUserId);
+    const updatedItem = action.payload;
     
-    if (!userId) {
-      throw new Error('User not authenticated');
+    // Make sure the user owns this item
+    if (updatedItem.userId && updatedItem.userId !== userId) {
+      throw new Error('Cannot update an item that belongs to another user');
     }
     
-    const { id, updates } = action.payload;
-    
-    // Get current item from state
-    const state: RootState = yield select();
-    const currentItem = state.bucketList.items.find(item => item.id === id);
-    
-    if (!currentItem) {
-      throw new Error('Item not found');
-    }
-    
-    // Create updated item
-    const updatedItem: BucketListItem = {
-      ...currentItem,
-      ...updates
-    };
-    
-    // Save to Firebase or backend
-    yield call(updateBucketListItemInFirebase, updatedItem);
+    // Save to AsyncStorage
+    yield call(updateBucketListItemInStorage, updatedItem);
     
     // Handle success
     yield put(updateBucketListItemSuccess(updatedItem));
+    console.log('Update bucket list item success action dispatched');
   } catch (error) {
     console.error('Failed to update bucket list item:', error);
     yield put(updateBucketListItemFailure(error.message || 'Failed to update bucket list item'));
   }
 }
 
-// Mock function to update bucket list item in Firebase or backend
-function updateBucketListItemInFirebase(item: BucketListItem): Promise<void> {
-  // In a real implementation, this would be:
-  // return firebaseService.updateBucketListItem(item);
-  
-  // For now, just return a resolved promise
-  return Promise.resolve();
+// Function to update bucket list item in AsyncStorage
+async function updateBucketListItemInStorage(item: BucketListItem): Promise<void> {
+  try {
+    console.log(`Updating item in AsyncStorage for user ${item.userId}`);
+    // Get existing items
+    const storedItems = await AsyncStorage.getItem(`bucketList_${item.userId}`);
+    if (storedItems) {
+      let items = JSON.parse(storedItems);
+      console.log('Existing items:', items);
+      
+      // Find and update the item
+      const index = items.findIndex(existingItem => existingItem.id === item.id);
+      if (index !== -1) {
+        items[index] = item;
+        console.log('Updated item at index', index);
+        
+        // Save back to AsyncStorage
+        await AsyncStorage.setItem(`bucketList_${item.userId}`, JSON.stringify(items));
+        console.log('Successfully saved updated items to AsyncStorage');
+      } else {
+        console.log('Item not found in existing items');
+      }
+    } else {
+      console.log('No existing items found');
+    }
+  } catch (error) {
+    console.error('Error updating in AsyncStorage:', error);
+  }
 }
 
-// Handle remove from bucket list
+/**
+ * Handle remove from bucket list
+ * Removes an item from the user's bucket list
+ */
 function* handleRemoveFromBucketList(action: PayloadAction<string>) {
   try {
+    console.log('Removing from bucket list, item ID:', action.payload);
     const userId = yield select(getUserId);
-    
-    if (!userId) {
-      throw new Error('User not authenticated');
-    }
-    
     const itemId = action.payload;
     
-    // Delete from Firebase or backend
-    yield call(deleteBucketListItemFromFirebase, itemId);
+    // Delete from AsyncStorage
+    yield call(deleteBucketListItemFromStorage, itemId, userId);
     
     // Handle success
     yield put(removeFromBucketListSuccess(itemId));
+    console.log('Remove from bucket list success action dispatched');
   } catch (error) {
     console.error('Failed to remove from bucket list:', error);
     yield put(removeFromBucketListFailure(error.message || 'Failed to remove from bucket list'));
   }
 }
 
-// Mock function to delete bucket list item from Firebase or backend
-function deleteBucketListItemFromFirebase(itemId: string): Promise<void> {
-  // In a real implementation, this would be:
-  // return firebaseService.deleteBucketListItem(itemId);
-  
-  // For now, just return a resolved promise
-  return Promise.resolve();
+// Function to delete bucket list item from AsyncStorage
+async function deleteBucketListItemFromStorage(itemId: string, userId: string): Promise<void> {
+  try {
+    console.log(`Deleting item from AsyncStorage for user ${userId}, item ID: ${itemId}`);
+    // Get existing items
+    const storedItems = await AsyncStorage.getItem(`bucketList_${userId}`);
+    if (storedItems) {
+      let items = JSON.parse(storedItems);
+      console.log('Existing items:', items);
+      
+      // Filter out the item to remove
+      const oldLength = items.length;
+      items = items.filter(item => item.id !== itemId);
+      console.log(`Removed ${oldLength - items.length} items`);
+      
+      // Save back to AsyncStorage
+      await AsyncStorage.setItem(`bucketList_${userId}`, JSON.stringify(items));
+      console.log('Successfully saved updated items to AsyncStorage');
+    } else {
+      console.log('No existing items found');
+    }
+  } catch (error) {
+    console.error('Error deleting from AsyncStorage:', error);
+  }
 }
 
-// Handle mark as visited
+/**
+ * Handle mark as visited
+ * Marks a bucket list item as visited
+ */
 function* handleMarkAsVisited(action: PayloadAction<{
   id: string;
   rating?: number;
   review?: string;
 }>) {
   try {
+    console.log('Marking as visited:', action.payload);
     const userId = yield select(getUserId);
-    
-    if (!userId) {
-      throw new Error('User not authenticated');
-    }
-    
     const { id, rating, review } = action.payload;
     
     // Get current item from state
@@ -275,19 +340,23 @@ function* handleMarkAsVisited(action: PayloadAction<{
       review
     };
     
-    // Save to Firebase or backend
-    yield call(updateBucketListItemInFirebase, updatedItem);
+    // Save to AsyncStorage
+    yield call(updateBucketListItemInStorage, updatedItem);
     
     // Handle success
     yield put(markAsVisitedSuccess(updatedItem));
+    console.log('Mark as visited success action dispatched');
   } catch (error) {
     console.error('Failed to mark as visited:', error);
     yield put(markAsVisitedFailure(error.message || 'Failed to mark as visited'));
   }
 }
 
-// Watch for bucket list actions
+/**
+ * Watch for bucket list actions
+ */
 export function* watchBucketList() {
+  console.log('Setting up bucket list saga watchers');
   yield takeLatest(fetchBucketList.type, handleFetchBucketList);
   yield takeLatest(addToBucketList.type, handleAddToBucketList);
   yield takeLatest(updateBucketListItem.type, handleUpdateBucketListItem);

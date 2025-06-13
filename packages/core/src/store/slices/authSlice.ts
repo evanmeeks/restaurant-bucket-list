@@ -1,10 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState, UserProfile } from '../../models/app-state';
 
-// Define the initial state for the auth slice
+// Define a mock user for development
+const MOCK_USER: UserProfile = {
+  id: 'mock-user-1',
+  email: 'test@example.com',
+  displayName: 'Test User',
+};
+
+// Define the initial state for the auth slice with mock user
 const initialState: AuthState = {
-  isAuthenticated: false,
-  user: null,
+  isAuthenticated: true, // Set to true for development
+  user: MOCK_USER, // Include the mock user
   loading: false,
   error: null,
 };
@@ -39,8 +46,14 @@ const authSlice = createSlice({
     },
     // Handle successful logout
     logoutSuccess(state) {
-      state.isAuthenticated = false;
-      state.user = null;
+      // For development, we'll keep the mock user logged in
+      if (process.env.NODE_ENV !== 'development') {
+        state.isAuthenticated = false;
+        state.user = null;
+      } else {
+        state.isAuthenticated = true;
+        state.user = MOCK_USER;
+      }
       state.loading = false;
       state.error = null;
     },
@@ -52,6 +65,14 @@ const authSlice = createSlice({
 
     // Clear any existing error
     clearError(state) {
+      state.error = null;
+    },
+
+    // Reset to mock user (for development only)
+    resetToMockUser(state) {
+      state.isAuthenticated = true;
+      state.user = MOCK_USER;
+      state.loading = false;
       state.error = null;
     },
   },
@@ -66,6 +87,7 @@ export const {
   logoutSuccess,
   logoutFailure,
   clearError,
+  resetToMockUser,
 } = authSlice.actions;
 
 // Export the reducer as the default export

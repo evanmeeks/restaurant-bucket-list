@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "./", // Set the base directory for resolving non-relative module names
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["packages/src/*"],
-      "core/*": ["packages/core/src/*"]
+      "@/*": [
+        "packages/src/*"
+      ],
+      "core/*": [
+        "packages/core/src/*"
+      ]
     },
     "jsx": "react-native",
     "strict": true,
@@ -11,7 +15,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.*/*", "packages/**/*.*/*", "src/api/__tests__/**/*.ts"],
-
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.*/*",
+    "packages/**/*.*/*",
+    "src/api/__tests__/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
 }
