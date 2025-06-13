@@ -27,6 +27,7 @@ class ReactNativeHTTPClient {
     }
 
     console.log('🌐 Making request to:', url);
+    console.log('🔑 Authorization header:', this.headers.Authorization ? 'Present' : 'Missing');
 
     const response = await fetch(url, {
       method: 'GET',
@@ -37,6 +38,8 @@ class ReactNativeHTTPClient {
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`❌ HTTP ${response.status} Error:`, errorText);
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
 
@@ -45,7 +48,13 @@ class ReactNativeHTTPClient {
   }
 }
 
-// Create a React Native-compatible client
+// Validate API key and create client
+console.log('🔧 Foursquare API Key loaded:', FOURSQUARE_API_KEY ? 'Present' : 'Missing');
+if (FOURSQUARE_API_KEY === 'dev-api-key') {
+  console.warn('⚠️ Using development API key - API calls will fail');
+}
+
+// Create a React Native-compatible client with proper FSQ API key format
 const foursquareClient = new ReactNativeHTTPClient(API_URL, {
   'Accept': 'application/json',
   'Authorization': FOURSQUARE_API_KEY,

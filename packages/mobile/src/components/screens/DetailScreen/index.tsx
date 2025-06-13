@@ -17,7 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from '../../../navigation/types';
 import { useDispatch } from 'react-redux';
 import { addToBucketList, fetchBucketList } from 'core/src/store/slices/bucketListSlice';
-import { useAppSelector } from 'core/src/store';
+import { useAppSelector } from '../../../hooks/redux';
 import { defaultRestaurantImg } from '../../../assets/default_88.png';
 // Get screen dimensions
 const { width: SCREEN_WIDTH } = Dimensions.get('window');

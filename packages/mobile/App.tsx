@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, ActivityIndicator } from 'react-native';
 
-import { store, persistor } from 'core/src/store';
+import { store, persistor } from './src/hooks/redux';
 import MainNavigator from './src/navigation/MainNavigator';
 
 export default function App() {

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useAppSelector } from 'core/src/store';
+import { useAppSelector } from '../../../hooks/redux';
 import CustomImage from '../../common/CustomImage'; // Import our custom image component
 
 export const ProfileScreen: React.FC = () => {
