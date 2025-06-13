@@ -31,10 +31,8 @@ const rootReducer = {
 // Create persisted reducer
 const persistedReducer = persistReducer(persistConfig, combineReducers(rootReducer));
 
-// Setup saga middleware with monitoring
-const sagaMiddleware = createSagaMiddleware({
-  sagaMonitor: __DEV__ ? console.tron?.createSagaMonitor?.() : undefined,
-});
+// Setup saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
 // Redux DevTools enhancer for React Native
 const createDebugger = () => {
@@ -47,12 +45,6 @@ const createDebugger = () => {
         trace: true,
         traceLimit: 25,
       });
-    }
-    
-    // For Flipper Redux plugin
-    if ((global as any).__FLIPPER__) {
-      const flipperEnhancer = require('redux-flipper').default();
-      return flipperEnhancer;
     }
   }
   return undefined;
@@ -94,7 +86,7 @@ export const store = configureStore({
       },
     }),
   },
-  enhancers: __DEV__ ? [createDebugger()].filter(Boolean) : [],
+  enhancers: [],
 });
 
 // Enhanced AsyncStorage testing

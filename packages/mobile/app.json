@@ -13,6 +13,10 @@
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],
+    "plugins": [
+      "expo-location",
+      "expo-splash-screen"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.restaurantbucketlist.mobile"

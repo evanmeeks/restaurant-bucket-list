@@ -1,11 +1,4 @@
 import Foursquare from '@foursquare/foursquare-places';
-import {
-  FOURSQUARE_CLIENT_ID,
-  FOURSQUARE_CLIENT_SECRET
-} from 'react-native-dotenv';
-
-
-
 
 import {
   Coordinates,
@@ -13,6 +6,7 @@ import {
   VenueSearchParams,
   VenueSearchResponse,
 } from '../models/venue';
+import { FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET } from '../utils/env';
 
 // alert(JSON.stringify(process.env));
 // Load CLIENT_ID and CLIENT_SECRET from environment variables

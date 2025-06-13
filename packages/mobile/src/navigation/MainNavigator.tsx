@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
-import { useAppSelector } from 'core/src/store';
 import React from 'react';
 import { Platform } from 'react-native';
 import { theme } from '../theme';
@@ -12,7 +11,7 @@ import { ExploreScreen } from '../components/screens/ExploreScreen';
 import { ProfileScreen } from '../components/screens/ProfileScreen';
 import { SearchScreen } from '../components/screens/SearchScreen';
 import { APITestScreen } from '../components/screens/APITestScreen';
-import DetailScreen from '../components/screens/DetailScreen'; // Changed to default import
+import DetailScreen from '../components/screens/DetailScreen';
 
 // Import types
 import { MainTabParamList, RootStackParamList } from './types';
@@ -25,11 +24,8 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
  * Bottom Tab Navigator
  * - Provides the main navigation tabs for the app
  * - Includes icons and labels for each tab
- * - Handles badge indicators for bucket list
  */
 const MainTabNavigator = () => {
-  const bucketListCount = useAppSelector(state => state.bucketList.items.length);
-  
   return (
     <Tab.Navigator
       screenOptions={{
@@ -71,7 +67,6 @@ const MainTabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <Icon name="bookmark" type="material" color={color} size={size} />
           ),
-          tabBarBadge: bucketListCount > 0 ? bucketListCount : undefined,
         }}
       />
       <Tab.Screen
@@ -114,7 +109,7 @@ const RootNavigator = () => {
         component={DetailScreen}
         options={{
           headerShown: false,
-          presentation: 'card', // Changed from 'modal' to 'card' to avoid potential issues
+          presentation: 'card',
         }}
       />
     </Stack.Navigator>

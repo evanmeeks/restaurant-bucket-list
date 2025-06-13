@@ -1,18 +1,59 @@
-import axios from 'axios';
 import { FOURSQUARE_API_KEY, API_URL } from '../utils/env';
 import { Coordinates } from '../models/venue';
 
-// Create an axios instance with the Foursquare API key
-const foursquareClient = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Accept': 'application/json',
-    'Authorization': FOURSQUARE_API_KEY,
-  },
+// React Native-compatible HTTP client instead of Axios
+class ReactNativeHTTPClient {
+  private baseURL: string;
+  private headers: Record<string, string>;
+
+  constructor(baseURL: string, headers: Record<string, string> = {}) {
+    this.baseURL = baseURL;
+    this.headers = headers;
+  }
+
+  async get(endpoint: string, options: { params?: Record<string, any> } = {}) {
+    const { params = {} } = options;
+    
+    // Build URL with query parameters (avoiding URL constructor)
+    let url = this.baseURL + endpoint;
+    
+    const queryParams = Object.keys(params)
+      .filter(key => params[key] !== undefined && params[key] !== null)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(String(params[key]))}`)
+      .join('&');
+    
+    if (queryParams) {
+      url += '?' + queryParams;
+    }
+
+    console.log('🌐 Making request to:', url);
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        ...this.headers,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return { data };
+  }
+}
+
+// Create a React Native-compatible client
+const foursquareClient = new ReactNativeHTTPClient(API_URL, {
+  'Accept': 'application/json',
+  'Authorization': FOURSQUARE_API_KEY,
 });
 
 /**
  * FoursquareV3Service - A service for interacting with the Foursquare Places API v3
+ * Modified to use fetch instead of Axios for React Native compatibility
  */
 export class FoursquareV3Service {
   private static instance: FoursquareV3Service;
@@ -43,10 +84,12 @@ export class FoursquareV3Service {
     sort?: string;
   }) {
     try {
+      console.log('🔍 Searching venues with params:', params);
       const response = await foursquareClient.get('/places/search', { params });
+      console.log('✅ Venues search successful');
       return response.data;
     } catch (error) {
-      console.error('Failed to search venues:', error);
+      console.error('❌ Failed to search venues:', error);
       throw error;
     }
   }
