@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { theme } from '../../../../mobile/theme';
 import { ProfileNavigationProp } from '../../navigation/types';
-import { theme } from '../../theme';
 
 interface ProfileScreenProps {
   navigation: ProfileNavigationProp;
@@ -15,7 +15,8 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Profile Screen</Text>
       <Text style={styles.description}>
-        This is a stub for the ProfileScreen component. It will be replaced with the actual implementation.
+        This is a stub for the ProfileScreen component. It will be replaced with the actual
+        implementation.
       </Text>
     </View>
   );

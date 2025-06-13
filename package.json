@@ -2,7 +2,7 @@
   "name": "restaurant-bucket-list",
   "version": "1.0.0",
   "description": "Shared business logic and models for Restaurant Bucket List app",
-  "main": "index.js",
+  "main": "index.ts",
   "private": true,
   "dependencies": {
     "@foursquare/foursquare-places": "^1.0.3",

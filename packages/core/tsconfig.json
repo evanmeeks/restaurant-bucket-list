@@ -4,6 +4,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "composite": true,
+    "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true
   },

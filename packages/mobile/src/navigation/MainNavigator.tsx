@@ -3,15 +3,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import React from 'react';
 import { Platform } from 'react-native';
-import { theme } from '../theme';
+import { theme } from '../../../mobile/theme';
 
 // Import screens
 import { BucketListScreen } from '../components/screens/BucketListScreen';
+import DetailScreen from '../components/screens/DetailScreen';
 import { ExploreScreen } from '../components/screens/ExploreScreen';
 import { ProfileScreen } from '../components/screens/ProfileScreen';
 import { SearchScreen } from '../components/screens/SearchScreen';
-import { APITestScreen } from '../components/screens/APITestScreen';
-import DetailScreen from '../components/screens/DetailScreen';
 
 // Import types
 import { MainTabParamList, RootStackParamList } from './types';
@@ -78,15 +77,6 @@ const MainTabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="APITest"
-        component={APITestScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="code" type="material" color={color} size={size} />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 };
@@ -104,8 +94,8 @@ const RootNavigator = () => {
       }}
     >
       <Stack.Screen name="Main" component={MainTabNavigator} />
-      <Stack.Screen 
-        name="Detail" 
+      <Stack.Screen
+        name="Detail"
         component={DetailScreen}
         options={{
           headerShown: false,
